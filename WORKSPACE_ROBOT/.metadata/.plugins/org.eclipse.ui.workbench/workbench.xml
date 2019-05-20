@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="14" version="2.0">
+<workbenchAdvisor/>
+<window height="766" maximized="true" width="1026" x="0" y="25">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="154" y="26"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="146" y="26"/>
+<coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="76" y="26"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="112" y="26"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="96" y="26"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="114" y="26"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="172" y="26"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.cdt.ui.editor.asm.AsmEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.make.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1544519039188" focus="true" label="Workspace - C/C++">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/src/main.c" title="main.c" tooltip="stm32f411_base/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1371" selectionTopPixel="2783"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="drv_uart.c" partName="drv_uart.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/src/drv/drv_uart.c" title="drv_uart.c" tooltip="stm32f411_base/src/drv/drv_uart.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/src/drv/drv_uart.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7530" selectionTopPixel="4825"/>
+</editor>
+<editor id="org.eclipse.cdt.make.editor" name="Makefile" partName="Makefile" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/Makefile" title="Makefile" tooltip="stm32f411_base/Makefile" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/Makefile"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="277" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f411xe.s" partName="startup_stm32f411xe.s" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/Device/startup_stm32f411xe.s" title="startup_stm32f411xe.s" tooltip="stm32f411_base/Device/startup_stm32f411xe.s" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/Device/startup_stm32f411xe.s"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3669" selectionTopPixel="1258"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" partName="util.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/src/util.c" title="util.c" tooltip="stm32f411_base/src/util.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/src/util.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="453" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" partName="util.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/util.h" title="util.h" tooltip="stm32f411_base/inc/util.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/util.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="452" selectionTopPixel="28"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_gpio.c" partName="stm32f4xx_hal_gpio.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" title="stm32f4xx_hal_gpio.c" tooltip="stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7035" selectionTopPixel="2159"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pixyCam.h" partName="pixyCam.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/pixyCam.h" title="pixyCam.h" tooltip="stm32f411_base/inc/pixyCam.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/pixyCam.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="quadEncoder.h" partName="quadEncoder.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/quadEncoder.h" title="quadEncoder.h" tooltip="stm32f411_base/inc/quadEncoder.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/quadEncoder.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="servoCommand.h" partName="servoCommand.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/servoCommand.h" title="servoCommand.h" tooltip="stm32f411_base/inc/servoCommand.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/servoCommand.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_msp.h" partName="stm32f4xx_hal_msp.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/stm32f4xx_hal_msp.h" title="stm32f4xx_hal_msp.h" tooltip="stm32f411_base/inc/stm32f4xx_hal_msp.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/stm32f4xx_hal_msp.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="564" selectionTopPixel="12"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="config.h" partName="config.h" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/inc/config.h" title="config.h" tooltip="stm32f411_base/inc/config.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/inc/config.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="199"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_pcd.c" partName="stm32f4xx_hal_pcd.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" title="stm32f4xx_hal_pcd.c" tooltip="stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="32681" selectionTopPixel="18904"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_msp.c" partName="stm32f4xx_hal_msp.c" path="/home/kerhoas/WORKSPACE_WEB/ROBOT_/WORKSPACE_ROBOT_v2019/stm32f411_base/src/stm32f4xx_hal_msp.c" title="stm32f4xx_hal_msp.c" tooltip="stm32f411_base/src/stm32f4xx_hal_msp.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/stm32f411_base/src/stm32f4xx_hal_msp.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5441" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view" partName="Disassembly">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="63" org.eclipse.ui.ide.markerType="432" org.eclipse.ui.ide.pathField="123" org.eclipse.ui.ide.resourceField="93" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.MemoryView" partName="Memory">
+<viewState/>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.RegisterView" partName="Registers">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables"/>
+<view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.debug.ui.ModuleView" partName="Modules">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.SearchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.CElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.make.ui.makeTargetActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.buildConfigActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.NavigationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.OpenActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.CodingActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.presentation"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.cdt.ui.CView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.cdt.make.ui.views.MakeView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.cdt.ui.includeBrowser"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.ConvertToMakeWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewMakeFromExisting"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard1"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard2"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewHeaderFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.cdt.make.ui.views.MakeView"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.cdt.ui.CView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.654195" ratioLeft="577" ratioRight="305" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="topRight" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.cdt.make.ui.views.MakeView" label="Make Target"/>
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.SignalsView"/>
+<show_view_action id="org.eclipse.debug.ui.RegisterView"/>
+<show_view_action id="org.eclipse.debug.ui.ModuleView"/>
+<show_view_action id="org.eclipse.debug.ui.MemoryView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.executablesView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser"/>
+<show_view_action id="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view"/>
+<show_view_action id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="org.eclipse.debug.ui.MemoryView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.RegisterView"/>
+<view id="org.eclipse.debug.ui.ModuleView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.74915254" ratioLeft="663" ratioRight="222" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="org.eclipse.debug.ui.MemoryView" label="Memory"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.2541857" ratioLeft="167" ratioRight="490" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.72655636" ratioLeft="922" ratioRight="347" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<page content="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="636" ratioRight="636" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
+<page content="org.eclipse.debug.ui.ModuleView" label="Modules"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.SignalsView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/src/drv/drv_uart.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/src/util.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/util.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.make.editor" path="/stm32f411_base/Makefile"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/pixyCam.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/quadEncoder.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/servoCommand.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/stm32f4xx_hal_msp.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/inc/config.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f411_base/src/stm32f4xx_hal_msp.c"/>
+</editors>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3013" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3013" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="drv_uart.c" index="0">
+<position info="not_deleted" x="7530" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="util.c" index="2">
+<position info="not_deleted" x="87" y="3225"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3010" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3009" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3009" y="0"/>
+</item>
+<item historyLabel="drv_uart.c" index="0">
+<position info="not_deleted" x="7530" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="3051" y="0"/>
+</item>
+<item historyLabel="drv_uart.c" index="0">
+<position info="not_deleted" x="7530" y="0"/>
+</item>
+<item historyLabel="util.h" index="3">
+<position info="not_deleted" x="452" y="0"/>
+</item>
+<item historyLabel="util.c" index="2">
+<position info="not_deleted" x="453" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_gpio.c" index="5">
+<position info="not_deleted" x="7035" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="2273" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="94" y="0"/>
+</item>
+<item historyLabel="pixyCam.h" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="quadEncoder.h" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="servoCommand.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.h" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="config.h" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="151" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_pcd.c" index="11">
+<position info="not_deleted" x="32319" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_pcd.c" index="11">
+<position info="not_deleted" x="32177" y="3"/>
+</item>
+<item historyLabel="stm32f4xx_hal_pcd.c" index="11">
+<position info="not_deleted" x="32333" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_pcd.c" index="11">
+<position info="not_deleted" x="32681" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="151" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.h" index="9">
+<position info="not_deleted" x="97" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="584" y="32"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.h" index="9">
+<position info="not_deleted" x="564" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="604" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="491" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position/>
+</item>
+<item historyLabel="config.h" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Makefile" index="4">
+<position info="not_deleted" x="277" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="491" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="609" y="0"/>
+</item>
+<item historyLabel="stm32f4xx_hal_msp.c" index="12">
+<position info="not_deleted" x="5441" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="1">
+<position/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_msp.c" tooltip="stm32f411_base/src/stm32f4xx_hal_msp.c">
+<persistable path="/stm32f411_base/src/stm32f4xx_hal_msp.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_pcd.c" tooltip="stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c">
+<persistable path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="config.h" tooltip="stm32f411_base/inc/config.h">
+<persistable path="/stm32f411_base/inc/config.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_msp.h" tooltip="stm32f411_base/inc/stm32f4xx_hal_msp.h">
+<persistable path="/stm32f411_base/inc/stm32f4xx_hal_msp.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="servoCommand.h" tooltip="stm32f411_base/inc/servoCommand.h">
+<persistable path="/stm32f411_base/inc/servoCommand.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="quadEncoder.h" tooltip="stm32f411_base/inc/quadEncoder.h">
+<persistable path="/stm32f411_base/inc/quadEncoder.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pixyCam.h" tooltip="stm32f411_base/inc/pixyCam.h">
+<persistable path="/stm32f411_base/inc/pixyCam.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_gpio.c" tooltip="stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
+<persistable path="/stm32f411_base/_Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" tooltip="stm32f411_base/inc/util.h">
+<persistable path="/stm32f411_base/inc/util.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" tooltip="stm32f411_base/src/util.c">
+<persistable path="/stm32f411_base/src/util.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f411xe.s" tooltip="stm32f411_base/Device/startup_stm32f411xe.s">
+<persistable path="/stm32f411_base/Device/startup_stm32f411xe.s"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.make.editor" name="Makefile" tooltip="stm32f411_base/Makefile">
+<persistable path="/stm32f411_base/Makefile"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drv_uart.c" tooltip="stm32f411_base/src/drv/drv_uart.c">
+<persistable path="/stm32f411_base/src/drv/drv_uart.c"/>
+</file>
+</mruList>
+</workbench>
