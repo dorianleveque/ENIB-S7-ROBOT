@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QKeyEvent>
+#include <QPicture>
+#include <iostream>
+#include <QSlider>
 
 namespace Ui {
 class MainWindow;
@@ -23,15 +26,21 @@ private:
 
     // Variables clavier
     bool isUp, isDown, isLeft, isRight;
+    // Variables robot
+    float vitesseRobot;
+
 
     // FONCTIONS
     bool event(QEvent *event);
     void update();
-    void setUp();
-    void setDown();
-    void setLeft();
-    void setRight();
+    void setUp(bool set);
+    void setDown(bool set);
+    void setLeft(bool set);
+    void setRight(bool set);
+    void initProgram();
 
 };
+
+
 
 #endif // MAINWINDOW_H
