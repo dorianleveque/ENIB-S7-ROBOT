@@ -2441,3 +2441,990 @@ src/main.c:252:2: warning: 'y' is used uninitialized in this function [-Wuniniti
   ^
 arm-none-eabi-objcopy -O ihex template.elf   template.hex
 arm-none-eabi-objcopy -O binary template.elf template.bin
+15:24:49 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'tracking':
+src/main.c:246:3: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+   ^
+src/main.c:246:6: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+      ^
+src/main.c:246:13: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+             ^
+src/main.c:246:40: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                        ^
+src/main.c:246:58: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                          ^
+src/main.c:246:72: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  x, y, width, height = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                        ^
+src/main.c:245:24: warning: variable 'height' set but not used [-Wunused-but-set-variable]
+  uint16_t x, y, width, height;
+                        ^
+src/main.c:251:2: warning: 'x' is used uninitialized in this function [-Wuninitialized]
+  servoLow_Set(x);
+  ^
+src/main.c:252:2: warning: 'y' is used uninitialized in this function [-Wuninitialized]
+  servoHigh_Set(y);
+  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:01:28 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:265:14: error: expected ')' before 'and'
+  if (XDiff>0 and YDiff>0) {
+              ^
+src/main.c:268:14: error: expected ')' before 'and'
+  if (XDiff<0 and YDiff>0) {
+              ^
+src/main.c:271:14: error: expected ')' before 'and'
+  if (XDiff<0 and YDiff<0) {
+              ^
+src/main.c:274:14: error: expected ')' before 'and'
+  if (XDiff>0 and YDiff<0) {
+              ^
+src/main.c:244:13: warning: variable 'YDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+             ^
+make: *** [template.elf] Error 1
+16:02:04 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:27: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (xObject + wObject)/2;
+                           ^
+src/main.c:254:27: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:27: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (yObject + hObject)/2;
+                           ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:02:31 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:06:01 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:27: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (xObject + wObject)/2;
+                           ^
+src/main.c:254:27: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:27: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (yObject + hObject)/2;
+                           ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:08:15 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:08:55 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:09:56 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:09:56 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:27: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (xObject + wObject)/2;
+                           ^
+src/main.c:254:27: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:27: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (yObject + hObject)/2;
+                           ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:10:03 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:10:03 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:27: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (xObject + wObject)/2;
+                           ^
+src/main.c:254:27: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:27: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (yObject + hObject)/2;
+                           ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:10:17 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:11:46 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:11:46 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:27: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (xObject + wObject)/2;
+                           ^
+src/main.c:254:27: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:27: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (yObject + hObject)/2;
+                           ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:11:54 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:13:52 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:15:47 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:17:56 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:17:56 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:18: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (uint16_t) (xObject + wObject)/2;
+                  ^
+src/main.c:254:18: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:18: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (uint16_t) (yObject + hObject)/2;
+                  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:18:03 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:19:10 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:19:10 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:18: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (uint16_t) (xObject + wObject)/2;
+                  ^
+src/main.c:254:18: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:18: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (uint16_t) (yObject + hObject)/2;
+                  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:19:15 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:19:23 **** Clean-only build of configuration Default for project stm32f411_base ****
+make clean 
+rm -f *.o template.elf template.hex template.bin template.map
+16:19:23 **** Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:254:18: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (uint16_t) (xObject + wObject)/2;
+                  ^
+src/main.c:254:18: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:18: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (uint16_t) (yObject + hObject)/2;
+                  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:19:36 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:21:22 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:244:13: warning: variable 'YDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+             ^
+src/main.c:244:6: warning: variable 'XDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+      ^
+src/main.c:254:18: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (uint16_t) (xObject + wObject)/2;
+                  ^
+src/main.c:254:18: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:18: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (uint16_t) (yObject + hObject)/2;
+                  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:22:09 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'tracking':
+src/main.c:251:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+         ^
+src/main.c:251:18: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                  ^
+src/main.c:251:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                           ^
+src/main.c:251:55: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                       ^
+src/main.c:251:73: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                         ^
+src/main.c:251:87: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  xObject, yObject, wObject, hObject = blockPosition[0], blockPosition[1], blockSize[0], blockSize[1];
+                                                                                       ^
+src/main.c:244:13: warning: variable 'YDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+             ^
+src/main.c:244:6: warning: variable 'XDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+      ^
+src/main.c:254:18: warning: 'xObject' is used uninitialized in this function [-Wuninitialized]
+  xObjectCenter = (uint16_t) (xObject + wObject)/2;
+                  ^
+src/main.c:254:18: warning: 'wObject' is used uninitialized in this function [-Wuninitialized]
+src/main.c:255:18: warning: 'yObject' is used uninitialized in this function [-Wuninitialized]
+  yObjectCenter = (uint16_t) (yObject + hObject)/2;
+                  ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:24:45 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:244:13: warning: variable 'YDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+             ^
+src/main.c:244:6: warning: variable 'XDiff' set but not used [-Wunused-but-set-variable]
+  int XDiff, YDiff;
+      ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:26:44 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:28:45 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:30:09 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:33:02 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:35:04 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:47:19 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:48:41 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:49:54 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:50:11 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:50:51 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+16:51:47 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:53:32 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:55:01 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:56:05 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+16:58:07 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:01:30 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:02:04 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:03:03 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:04:47 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:06:03 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:79:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:241:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:79:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:250:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:18:25 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:82:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:244:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:82:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:253:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:20:32 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:82:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:244:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:82:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:253:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:22:45 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:82:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:244:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:82:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:253:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:28:14 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:82:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:244:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:82:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:253:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:29:52 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
+src/main.c: In function 'task_A':
+src/main.c:82:3: warning: implicit declaration of function 'tracking' [-Wimplicit-function-declaration]
+   tracking();
+   ^
+src/main.c: At top level:
+src/main.c:244:6: warning: conflicting types for 'tracking'
+ void tracking()
+      ^
+src/main.c:82:3: note: previous implicit declaration of 'tracking' was here
+   tracking();
+   ^
+src/main.c: In function 'tracking':
+src/main.c:253:62: warning: variable 'yObjectCenter' set but not used [-Wunused-but-set-variable]
+  uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
+                                                              ^
+arm-none-eabi-objcopy -O ihex template.elf   template.hex
+arm-none-eabi-objcopy -O binary template.elf template.bin
+17:31:53 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+17:32:19 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
+17:32:45 **** Incremental Build of configuration Default for project stm32f411_base ****
+make all 
+make: Nothing to be done for `all'.
