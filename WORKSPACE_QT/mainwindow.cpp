@@ -1,10 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+static QString nameport = "/dev/ttyACM0";
+
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     initProgram();
+    openSerialPort();
 }
 
 MainWindow::~MainWindow()
@@ -18,15 +22,16 @@ void MainWindow::initProgram()
     setDown(false);
     setRight(false);
     setLeft(false);
-    update();
-    /*
+    ui->labelTest->setHidden(false);
+    //update();
+/*
     QPicture pict; // A voir plus tard
     bool success;
-    success = pict.load("/home/e2015/e5even/Documents/SEN S7/ihm_projetsen/WORKSPACE_QT/trollface.jpg");
+    success = pict.load("C:/Users/Elouan/Documents/SEN S7/Projet Robot/ihm_projetsen/WORKSPACE_QT/Images/up.png");
     //printf("Reussite du chargement de l'image: %d\n",success);
-    std::cout<<"Reussite du chargement de l'image: "<<success<<"\n";
+    qDebug()<<"Reussite du chargement de l'image: "<<success;
     ui->labelTest->setPicture(pict);
-    */
+*/
     ui->slider->setFocusPolicy(Qt::NoFocus); // Pour dire au slider de ne pas recuperer les evenements claviers pour lui tout seul
 }
 
@@ -199,3 +204,74 @@ bool QSlider::event(QEvent *event) override
     }
 }
 */
+
+void MainWindow::robotAvancer()
+{
+
+}
+void MainWindow::robotReculer()
+{
+
+}
+void MainWindow::robotGauche()
+{
+
+}
+void MainWindow::robotDroite()
+{
+
+}
+
+void MainWindow::robotStop()
+{
+
+}
+
+// Les fonctions pour la tourelle vont etre à faire
+
+void MainWindow::openSerialPort()
+{
+#if USE_LINUX
+    serial = new QSerialPort(this);
+    serial->setPortName(nameport);
+    serial->open(QIODevice::ReadWrite);
+
+     if( serial->isOpen()==false)
+     {
+          serial->clearError();
+          QMessageBox::critical(this, "Port error", "Port: "+nameport);
+          QMessageBox::information(this, "Port error", "Vérifier nom du port \n Fermer tout programme utilisant la lisaison RS232 "+nameport);
+      }
+   else
+     {
+         QMessageBox::information(this, "Port open", " "+nameport);
+          serial->setBaudRate(QSerialPort::Baud115200);
+          serial->setStopBits(QSerialPort::OneStop);
+          serial->setParity(QSerialPort::NoParity);
+          serial->setDataBits(QSerialPort::Data8);
+          serial->setFlowControl(QSerialPort::NoFlowControl);
+     }
+#else
+    qInfo()<<"Version windows de la fonction openSerialPort. Nom du port: "<<nameport;
+#endif
+}
+
+void MainWindow::onButSendClicked()
+{
+    /*
+    QString message=mes_to_send->text();
+    writeData(message.toUtf8()); // QString --> QByteArray
+    */
+}
+
+
+void MainWindow::writeData(const QByteArray &data)
+{
+    //serial->write(data);
+}
+
+void MainWindow::readData()
+{
+    //QByteArray data = serial->readAll();
+    //mes_received->setText(data);
+}
