@@ -712,3 +712,15 @@ org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase 
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2019-05-29 14:30:56.544 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_191
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 2 2 2019-05-29 14:36:13.760
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-05-29 14:36:13.760
+!MESSAGE The project description file (.project) for 'stm32f411_base' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
