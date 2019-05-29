@@ -1,8 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#define USE_LINUX 0
+
 #include <QMainWindow>
 #include <QKeyEvent>
+#include <QPicture>
+#include <iostream>
+#include <QSlider>
+#include <QDebug>
+#include <QtSerialPort/QSerialPort>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -23,15 +31,34 @@ private:
 
     // Variables clavier
     bool isUp, isDown, isLeft, isRight;
+    // Variables robot
+    float vitesseRobot;
+
+    // Variables transmission
+    QSerialPort *serial;
+
 
     // FONCTIONS
     bool event(QEvent *event);
     void update();
-    void setUp();
-    void setDown();
-    void setLeft();
-    void setRight();
+    void setUp(bool set);
+    void setDown(bool set);
+    void setLeft(bool set);
+    void setRight(bool set);
+    void initProgram();
+    void robotAvancer();
+    void robotReculer();
+    void robotGauche();
+    void robotDroite();
+    void robotStop();
+    void openSerialPort();
+    void onButSendClicked();
+    void writeData(const QByteArray &data);
+    void readData();
+
 
 };
+
+
 
 #endif // MAINWINDOW_H

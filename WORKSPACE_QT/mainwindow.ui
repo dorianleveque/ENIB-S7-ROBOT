@@ -50,14 +50,14 @@
         <widget class="QLabel" name="label">
          <property name="geometry">
           <rect>
-           <x>50</x>
-           <y>10</y>
-           <width>31</width>
-           <height>16</height>
+           <x>20</x>
+           <y>0</y>
+           <width>101</width>
+           <height>20</height>
           </rect>
          </property>
          <property name="text">
-          <string>Clavier</string>
+          <string>Fleches clavier</string>
          </property>
         </widget>
         <widget class="QFrame" name="keyboardUp">
@@ -122,6 +122,73 @@
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="labelTest">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>160</y>
+          <width>321</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>Images/down.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_vitesse">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>381</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>141</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Vitesse de consigne:</string>
+         </property>
+        </widget>
+        <widget class="QSlider" name="slider">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>30</y>
+           <width>160</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickInterval">
+          <number>10</number>
          </property>
         </widget>
        </widget>
