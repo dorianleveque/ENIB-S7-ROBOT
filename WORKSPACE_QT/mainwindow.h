@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#define USE_LINUX 0
+#define USE_LINUX 1
 
 #include <QMainWindow>
 #include <QKeyEvent>
@@ -36,6 +36,7 @@ private:
 
     // Variables transmission
     QSerialPort *serial;
+    QByteArray sendData;
 
 
     // FONCTIONS
@@ -55,6 +56,7 @@ private:
     void onButSendClicked();
     void writeData(const QByteArray &data);
     void readData();
+    //void openZigbeePort();
 
 
 };

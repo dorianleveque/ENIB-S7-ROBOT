@@ -33,6 +33,8 @@ int cam_status = 1; // 0: ok, 1: research, 2: error
 int cam_cmd_x = 0;
 int cam_cmd_y = 0;
 
+int led = 0;
+
 static void task_A(void *pvParameters)
 {
 
@@ -71,7 +73,7 @@ static void task_A(void *pvParameters)
 
 		*/
 
-		pixyCam_SetLED(0,255,0);
+		//pixyCam_SetLED(0,255,0);
 
 		uint16_t blockPosition[2], blockSize[2];
 		pixyCam_Get(blockPosition, blockSize);
@@ -79,7 +81,7 @@ static void task_A(void *pvParameters)
 		//term_printf("x: %d, y: %d, w: %d, h: %d\n", blockPosition[0], blockPosition[1], blockSize[0], blockSize[1]);
 
 		//servoLow_Set(120);
-		tracking();
+		//tracking();
 		//pixyCam_Test();
 		vTaskDelay(50); // 1000 ms
 
@@ -204,6 +206,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 	{
 
 		 HAL_UART_Receive_IT(&Uart2Handle, (uint8_t *)rec_buf2, NB_CAR_TO_RECEIVE);
+		 term_printf("Hey uart2 !");
+		 if(led == 0)
+		 {
+		 pixyCam_SetLED(255,0,0);
+		 led = 1;
+		 servoHigh_Set(120);
+		 }
+		 else
+		 {
+			 pixyCam_SetLED(0,0,0);
+			 led = 0;
+			 servoHigh_Set(20);
+		 }
 
 	}
 
@@ -211,6 +226,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 	{
 
 		 HAL_UART_Receive_IT(&Uart6Handle, (uint8_t *)rec_buf6, NB_CAR_TO_RECEIVE);
+		 //term_printf("Message recu de la part de uart6 !\n\r");
+		 servoLow_Set(120);
 	}
 
 }

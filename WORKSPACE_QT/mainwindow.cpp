@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 static QString nameport = "/dev/ttyACM0";
+static QString zigbeePort = "/dev/ttyUSB0";
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -9,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     initProgram();
     openSerialPort();
+    //openZigbeePort();
 }
 
 MainWindow::~MainWindow()
@@ -23,7 +25,7 @@ void MainWindow::initProgram()
     setRight(false);
     setLeft(false);
     ui->labelTest->setHidden(false);
-    //update();
+    update();
 /*
     QPicture pict; // A voir plus tard
     bool success;
@@ -45,24 +47,28 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         {
             setUp(true);
             update();
+            robotAvancer();
             return true;
         }
         else if (ke->key() == Qt::Key_Down)
         {
             setDown(true);
             update();
+            robotReculer();
             return true;
         }
         else if (ke->key() == Qt::Key_Left)
         {
             setLeft(true);
             update();
+            robotGauche();
             return true;
         }
         else if (ke->key() == Qt::Key_Right)
         {
             setRight(true);
             update();
+            robotDroite();
             return true;
         }
         else
@@ -72,7 +78,7 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         }
     }
 
-    if (event->type() == QEvent::KeyRelease)
+    if (event->type() == QEvent::KeyRelease) // Le robot s'arrete
     {
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
 
@@ -80,29 +86,34 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         {
             setUp(false);
             update();
+            robotStop();
             return true;
         }
         else if (ke->key() == Qt::Key_Down)
         {
             setDown(false);
             update();
+            robotStop();
             return true;
         }
         else if (ke->key() == Qt::Key_Left)
         {
             setLeft(false);
             update();
+            robotStop();
             return true;
         }
         else if (ke->key() == Qt::Key_Right)
         {
             setRight(false);
             update();
+            robotStop();
             return true;
         }
         else
         {
             // Other key
+
             return true;
         }
     }
@@ -207,29 +218,59 @@ bool QSlider::event(QEvent *event) override
 
 void MainWindow::robotAvancer()
 {
-
+#if USE_LINUX
+    sendData= QByteArray("A"); // Si on envoie plusieurs caracteres, il faut le changer dans le programme carte. Sinon la callback ne se declenche pas.
+    writeData(sendData);
+    //readData(); // ça renvoie bien
+#else
+    qInfo()<<"Fonction avancer";
+#endif
 }
 void MainWindow::robotReculer()
 {
-
+#if USE_LINUX
+    sendData= QByteArray("R");
+    writeData(sendData);
+    //readData(); // ça renvoie bien
+#else
+    qInfo()<<"Fonction reculer";
+#endif
 }
 void MainWindow::robotGauche()
 {
-
+#if USE_LINUX
+    sendData= QByteArray("G");
+    writeData(sendData);
+    //readData(); // ça renvoie bien
+#else
+    qInfo()<<"Fonction gauche";
+#endif
 }
 void MainWindow::robotDroite()
 {
-
+#if USE_LINUX
+    sendData= QByteArray("D");
+    writeData(sendData);
+    //readData(); // ça renvoie bien
+#else
+    qInfo()<<"Fonction droite";
+#endif
 }
 
 void MainWindow::robotStop()
 {
-
+#if USE_LINUX
+    sendData= QByteArray("S");
+    writeData(sendData);
+    //readData(); // ça renvoie bien
+#else
+    qInfo()<<"Fonction stop";
+#endif
 }
 
 // Les fonctions pour la tourelle vont etre à faire
 
-void MainWindow::openSerialPort()
+void MainWindow::openSerialPort() // Il faut brancher une carte pour que cela fonctionne
 {
 #if USE_LINUX
     serial = new QSerialPort(this);
@@ -256,6 +297,36 @@ void MainWindow::openSerialPort()
 #endif
 }
 
+/*
+void MainWindow::openZigbeePort() // Il faut brancher une carte pour que cela fonctionne
+{
+#if USE_LINUX
+    serial = new QSerialPort(this);
+    serial->setPortName(zigbeePort);
+    serial->open(QIODevice::ReadWrite);
+
+     if( serial->isOpen()==false)
+     {
+          serial->clearError();
+          QMessageBox::critical(this, "Port error", "Port: "+zigbeePort);
+          QMessageBox::information(this, "Port error", "Vérifier nom du port \n Fermer tout programme utilisant la lisaison RS232 "+zigbeePort);
+      }
+   else
+     {
+         QMessageBox::information(this, "Port open", " "+zigbeePort);
+          serial->setBaudRate(QSerialPort::Baud9600);
+          serial->setStopBits(QSerialPort::OneStop);
+          serial->setParity(QSerialPort::NoParity);
+          serial->setDataBits(QSerialPort::Data8);
+          serial->setFlowControl(QSerialPort::NoFlowControl);
+     }
+#else
+    qInfo()<<"Version windows de la fonction openSerialPort. Nom du port: "<<zigbeePort;
+#endif
+}
+
+*/
+
 void MainWindow::onButSendClicked()
 {
     /*
@@ -267,11 +338,21 @@ void MainWindow::onButSendClicked()
 
 void MainWindow::writeData(const QByteArray &data)
 {
-    //serial->write(data);
+#if USE_LINUX
+    serial->write(data);
+    qInfo()<<"Message ecrit:"<<data;
+
+#else
+    qInfo()<<"Fonction write data";
+#endif
 }
 
 void MainWindow::readData()
 {
-    //QByteArray data = serial->readAll();
-    //mes_received->setText(data);
+#if USE_LINUX
+    QByteArray data = serial->readAll();
+    qInfo()<<"Data receive:"<<data;
+#else
+
+#endif
 }
