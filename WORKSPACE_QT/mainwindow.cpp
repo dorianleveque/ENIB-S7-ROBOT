@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     initProgram();
     openSerialPort();
-    //openZigbeePort();
+    openZigbeePort();
 }
 
 MainWindow::~MainWindow()
@@ -74,6 +74,9 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         else
         {
             // Other key
+            QByteArray dataZ = QByteArray("Z");
+            serialZigbee->write(dataZ);
+            qInfo()<<"Envoi au zigbee:"<<dataZ;
             return true;
         }
     }
@@ -297,35 +300,35 @@ void MainWindow::openSerialPort() // Il faut brancher une carte pour que cela fo
 #endif
 }
 
-/*
+
 void MainWindow::openZigbeePort() // Il faut brancher une carte pour que cela fonctionne
 {
 #if USE_LINUX
-    serial = new QSerialPort(this);
-    serial->setPortName(zigbeePort);
-    serial->open(QIODevice::ReadWrite);
+    serialZigbee = new QSerialPort(this);
+    serialZigbee->setPortName(zigbeePort);
+    serialZigbee->open(QIODevice::ReadWrite);
 
-     if( serial->isOpen()==false)
+     if( serialZigbee->isOpen()==false)
      {
-          serial->clearError();
+          serialZigbee->clearError();
           QMessageBox::critical(this, "Port error", "Port: "+zigbeePort);
           QMessageBox::information(this, "Port error", "Vérifier nom du port \n Fermer tout programme utilisant la lisaison RS232 "+zigbeePort);
       }
    else
      {
          QMessageBox::information(this, "Port open", " "+zigbeePort);
-          serial->setBaudRate(QSerialPort::Baud9600);
-          serial->setStopBits(QSerialPort::OneStop);
-          serial->setParity(QSerialPort::NoParity);
-          serial->setDataBits(QSerialPort::Data8);
-          serial->setFlowControl(QSerialPort::NoFlowControl);
+          serialZigbee->setBaudRate(QSerialPort::Baud9600);
+          serialZigbee->setStopBits(QSerialPort::OneStop);
+          serialZigbee->setParity(QSerialPort::NoParity);
+          serialZigbee->setDataBits(QSerialPort::Data8);
+          serialZigbee->setFlowControl(QSerialPort::NoFlowControl);
      }
 #else
-    qInfo()<<"Version windows de la fonction openSerialPort. Nom du port: "<<zigbeePort;
+    qInfo()<<"Version windows de la fonction openZigbeePort. Nom du port: "<<zigbeePort;
 #endif
 }
 
-*/
+
 
 void MainWindow::onButSendClicked()
 {

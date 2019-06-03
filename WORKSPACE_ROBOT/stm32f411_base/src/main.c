@@ -206,18 +206,31 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 	{
 
 		 HAL_UART_Receive_IT(&Uart2Handle, (uint8_t *)rec_buf2, NB_CAR_TO_RECEIVE);
-		 term_printf("Hey uart2 !");
-		 if(led == 0)
+		 if(*rec_buf2 == 0x41) // == A
 		 {
-		 pixyCam_SetLED(255,0,0);
-		 led = 1;
-		 servoHigh_Set(120);
+			 servoHigh_Set(20);
+		 }
+		 else if(*rec_buf2 == 0x52) // == R
+		 {
+			 servoHigh_Set(120);
+		 }
+		 else if(*rec_buf2 == 0x47) // == G
+		 {
+			 servoLow_Set(120);
+		 }
+		 else if(*rec_buf2 == 0x44) // == D
+		 {
+			 servoLow_Set(20);
+		 }
+
+		 else if(*rec_buf2 == 0x53) // == S
+		 {
+			 servoHigh_Set(70);
+			 servoLow_Set(70);
 		 }
 		 else
 		 {
-			 pixyCam_SetLED(0,0,0);
-			 led = 0;
-			 servoHigh_Set(20);
+			 // Nothing to do
 		 }
 
 	}
@@ -226,7 +239,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 	{
 
 		 HAL_UART_Receive_IT(&Uart6Handle, (uint8_t *)rec_buf6, NB_CAR_TO_RECEIVE);
-		 //term_printf("Message recu de la part de uart6 !\n\r");
+		 if(*rec_buf2 == 0x5A) // == Z
+		 {
+			 servoHigh_Set(20);
+		 }
 		 servoLow_Set(120);
 	}
 

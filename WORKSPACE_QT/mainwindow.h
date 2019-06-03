@@ -36,6 +36,7 @@ private:
 
     // Variables transmission
     QSerialPort *serial;
+    QSerialPort *serialZigbee;
     QByteArray sendData;
 
 
@@ -56,7 +57,7 @@ private:
     void onButSendClicked();
     void writeData(const QByteArray &data);
     void readData();
-    //void openZigbeePort();
+    void openZigbeePort();
 
 
 };
