@@ -5,13 +5,15 @@
 #define EX1 1
 #define EX2 2
 #define EX3 3
+#define US 4
 
-#define SYNCHRO_EX EX3
+#define SYNCHRO_EX US
 
 //#######################################################
 
 // Déclaration des objets synchronisants !! Ne pas oublier de les créer
 xSemaphoreHandle xSemaphore = NULL;
+xSemaphoreHandle semA = NULL;
 xQueueHandle qh = NULL;
 
 
@@ -23,6 +25,15 @@ struct AMessage
 	char command;
 	int data;
 };
+
+struct SensorMsg
+{
+	int AV_Left;
+	int AV_Right;
+	int AR_Left;
+	int AR_Right;
+};
+
 
 
 int dist_IR[2];
@@ -84,10 +95,9 @@ static void task_A(void *pvParameters)
 		servoLow_Set(commandeServo);
 
 		*/
-		//asservLeftMotor(1000);
-		asservRightMotor(1000);
+		asservLeftMotor(100);
+		asservRightMotor(100);
 		//tracking();
-		//pixyCam_Test();
 		vTaskDelay(3); // 1000 ms
 
 	}
@@ -135,7 +145,7 @@ static void task_E( void *pvParameters )
 	{
 	    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);
 		term_printf("TASK E \n\r");
-		xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
+		//xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
 		xSemaphoreTake( xSemaphore, portMAX_DELAY );
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);
 		vTaskDelay(SAMPLING_PERIOD_ms);
@@ -154,6 +164,87 @@ static void task_F(void *pvParameters)
 		xSemaphoreGive( xSemaphore );
 	}
 }
+#elif SYNCHRO_EX == US
+
+	static void task_motor( void *pvParameters )
+	{
+		for(;;)
+		{
+			term_printf("TASK MOTOR \n\r");
+		}
+	}
+
+	static void task_sensors( void *pvParameters )
+	{
+		int loop = 0; //70   -> avec vtaskdelay => 24 loop
+		struct SensorMsg pxMessage;
+		pxMessage.AV_Left=0;
+		pxMessage.AV_Right=0;
+		pxMessage.AR_Left=0;
+		pxMessage.AR_Right=0;
+		vTaskDelay(70);
+		for(;;)
+		{
+
+
+
+			//term_printf("TASK SENSORS \n\r");
+			captDistIR_Get(dist_IR);
+
+			captDistUS_Measure(0xE0);
+			if (loop > 23) {
+			uint16_t dist = captDistUS_Get(0xE0);
+			term_printf("dist: %d \n\r", dist);
+			loop = 0;
+			}
+			loop++;
+
+			pxMessage.AV_Left=(dist_IR[0] > 2000);
+			pxMessage.AV_Right=(dist_IR[1] > 2000);
+			pxMessage.AR_Left=0;
+			pxMessage.AR_Right=0;
+
+			xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
+			xSemaphoreTake( semA, portMAX_DELAY );
+
+			vTaskDelay(70);
+		}
+	}
+
+	static void task_cam( void *pvParameters )
+	{
+		for(;;)
+		{
+			term_printf("TASK CAM \n\r");
+		}
+	}
+
+	static void task_main( void *pvParameters )
+	{
+		struct AMessage pxRxedMessage;
+
+		for (;;)
+		{
+			xQueueReceive( qh,  &( pxRxedMessage ) , portMAX_DELAY );
+			asservLeftMotor(500);
+			asservRightMotor(500);
+
+			xSemaphoreGive( semA );
+		}
+
+		/*for(;;)
+		{
+			//term_printf("TASK MAIN \n\r");
+			xSemaphoreTake(semA, portMAX_DELAY);
+
+			asservLeftMotor(500);
+			asservRightMotor(500);
+			//tracking();
+			vTaskDelay(3); // 1000 ms
+
+		}*/
+	}
+
 #endif
 //=========================================================
 //	>>>>>>>>>>>>	MAIN	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -188,10 +279,18 @@ int main(void)
 #elif SYNCHRO_EX == EX3
 	xTaskCreate( task_E, ( signed portCHAR * ) "task E", 512 /* stack size */, NULL, tskIDLE_PRIORITY+2, NULL );
 	xTaskCreate( task_F, ( signed portCHAR * ) "task F", 512 /* stack size */, NULL, tskIDLE_PRIORITY+1, NULL );
+#elif SYNCHRO_EX == US
+	xTaskCreate( task_main, 	( signed portCHAR * ) "task Main"	, 512, NULL, tskIDLE_PRIORITY+4, NULL );
+	xTaskCreate( task_sensors, 	( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+3, NULL );
+	//xTaskCreate( task_motor,	( signed portCHAR * ) "task Motor"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
+	//xTaskCreate( task_cam, 		( signed portCHAR * ) "task Cam"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
+
 #endif
 
-	vSemaphoreCreateBinary(xSemaphore);
-	xSemaphoreTake( xSemaphore, portMAX_DELAY );
+	//vSemaphoreCreateBinary(xSemaphore);
+	vSemaphoreCreateBinary(semA);
+
+	xSemaphoreTake( semA, portMAX_DELAY );
 
 	qh = xQueueCreate( 1, sizeof(struct AMessage ) );
 
