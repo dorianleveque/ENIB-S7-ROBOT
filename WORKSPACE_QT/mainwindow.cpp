@@ -2,22 +2,21 @@
 #include "ui_mainwindow.h"
 
 //===================================================
-#define ID_PC
-#define ID_CARTE
+#define ID_ROUES 'R'
+#define ID_ROUES_UP 'A'
+#define ID_ROUES_DOWN 'R'
+#define ID_ROUES_LEFT 'G'
+#define ID_ROUES_RIGHT 'D'
+#define ID_ROUES_STOP 'S'
 
-#define ID_ROUES
-#define ID_ROUES_UP
-#define ID_ROUES_DOWN
-#define ID_ROUES_LEFT
-#define ID_ROUES_RIGHT
+#define ID_TOURELLE 'T'
+#define ID_TOURELLE_UP 'A'
+#define ID_TOURELLE_DOWN 'R'
+#define ID_TOURELLE_LEFT 'G'
+#define ID_TOURELLE_RIGHT 'D'
+#define ID_TOURELLE_STOP 'S'
 
-#define ID_TOURELLE
-#define ID_TOURELLE_UP
-#define ID_TOURELLE_DOWN
-#define ID_TOURELLE_LEFT
-#define ID_TOURELLE_RIGHT
-
-#define ID_CONSIGNE
+#define ID_CONSIGNE 'C'
 //===================================================
 
 static QString nameport = "/dev/ttyACM0";
@@ -27,6 +26,7 @@ static QString zigbeePort = "/dev/ttyUSB0";
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QObject::connect(ui->slider,SIGNAL(valueChanged(int)),this,SLOT(onSliderValueChanged(int)));
     initProgram();
     openSerialPort();
     openZigbeePort();
@@ -43,7 +43,6 @@ void MainWindow::initProgram()
     setDown(false);
     setRight(false);
     setLeft(false);
-    ui->labelTest->setHidden(false);
     update();
 /*
     QPicture pict; // A voir plus tard
@@ -66,57 +65,57 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         {
             setUp(true);
             update();
-            robotAvancer();
+            sendRobotData(ID_ROUES,ID_ROUES_UP);
             return true;
         }
         else if (ke->key() == Qt::Key_Down)
         {
             setDown(true);
             update();
-            robotReculer();
+            sendRobotData(ID_ROUES,ID_ROUES_DOWN);
             return true;
         }
         else if (ke->key() == Qt::Key_Left)
         {
             setLeft(true);
             update();
-            robotGauche();
+            sendRobotData(ID_ROUES,ID_ROUES_LEFT);
             return true;
         }
         else if (ke->key() == Qt::Key_Right)
         {
             setRight(true);
             update();
-            robotDroite();
+            sendRobotData(ID_ROUES,ID_ROUES_RIGHT);
             return true;
         }
 
         else if (ke->key() == Qt::Key_Z)
         {
-            //setTourelleUp(true);
+            setTourelleUp(true);
             update();
-            //tourelleUp();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_UP);
             return true;
         }
         else if (ke->key() == Qt::Key_S)
         {
-            //setTourelleDown(true);
+            setTourelleDown(true);
             update();
-            //tourelleDown();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_DOWN);
             return true;
         }
         else if (ke->key() == Qt::Key_Q)
         {
-            //setTourelleLeft(true);
+            setTourelleLeft(true);
             update();
-            //tourelleGauche();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_LEFT);
             return true;
         }
         else if (ke->key() == Qt::Key_D)
         {
-            //setTourelleRight(true);
+            setTourelleRight(true);
             update();
-            //tourelleDroite();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_RIGHT);
             return true;
         }
 
@@ -138,64 +137,63 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
         {
             setUp(false);
             update();
-            robotStop();
+            sendRobotData(ID_ROUES,ID_ROUES_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_Down)
         {
             setDown(false);
             update();
-            robotStop();
+            sendRobotData(ID_ROUES,ID_ROUES_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_Left)
         {
             setLeft(false);
             update();
-            robotStop();
+            sendRobotData(ID_ROUES,ID_ROUES_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_Right)
         {
             setRight(false);
             update();
-            robotStop();
+            sendRobotData(ID_ROUES,ID_ROUES_STOP);
             return true;
         }
 
         else if (ke->key() == Qt::Key_Z)
         {
-            //setTourelleUp(true);
+            setTourelleUp(false);
             update();
-            //tourelleStop();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_S)
         {
-            //setTourelleDown(false);
+            setTourelleDown(false);
             update();
-            //tourelleStop();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_Q)
         {
-            //setTourelleLeft(true);
+            setTourelleLeft(false);
             update();
-            //tourelleStop();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_STOP);
             return true;
         }
         else if (ke->key() == Qt::Key_D)
         {
-            //setTourelleRight(true);
+            setTourelleRight(false);
             update();
-            //tourelleStop();
+            sendRobotData(ID_TOURELLE,ID_TOURELLE_STOP);
             return true;
         }
 
         else
         {
             // Other key
-
             return true;
         }
     }
@@ -205,7 +203,7 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
 
 void MainWindow::update()
 {
-    if(isUp)
+    if(isUp) // Mise à jour des variables clavier des roues
     {
         ui->keyboardUp->setHidden(false);
         ui->keyboardDown->setHidden(true);
@@ -239,6 +237,42 @@ void MainWindow::update()
         ui->keyboardDown->setHidden(true);
         ui->keyboardLeft->setHidden(true);
         ui->keyboardRight->setHidden(true);
+    }
+
+    if(isTourelleUp) // Mise à jour des vatriables clavier de la tourelle
+    {
+        ui->tourelleUp->setHidden(false);
+        ui->tourelleDown->setHidden(true);
+        ui->tourelleLeft->setHidden(true);
+        ui->tourelleRight->setHidden(true);
+    }
+    else if(isTourelleDown)
+    {
+        ui->tourelleUp->setHidden(true);
+        ui->tourelleDown->setHidden(false);
+        ui->tourelleLeft->setHidden(true);
+        ui->tourelleRight->setHidden(true);
+    }
+    else if(isTourelleLeft)
+    {
+        ui->tourelleUp->setHidden(true);
+        ui->tourelleDown->setHidden(true);
+        ui->tourelleLeft->setHidden(false);
+        ui->tourelleRight->setHidden(true);
+    }
+    else if(isTourelleRight)
+    {
+        ui->tourelleUp->setHidden(true);
+        ui->tourelleDown->setHidden(true);
+        ui->tourelleLeft->setHidden(true);
+        ui->tourelleRight->setHidden(false);
+    }
+    else
+    {
+        ui->tourelleUp->setHidden(true);
+        ui->tourelleDown->setHidden(true);
+        ui->tourelleLeft->setHidden(true);
+        ui->tourelleRight->setHidden(true);
     }
 }
 
@@ -288,69 +322,94 @@ void MainWindow::setRight(bool set)
     }
 }
 
-/*
-bool QSlider::event(QEvent *event) override
+void MainWindow::setTourelleUp(bool set)
 {
-    if ((event->type() == QEvent::KeyPress) || (event->type() == QEvent::KeyRelease))
+    if(set)
     {
-        return true;
+        isTourelleUp=true;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=false;
+    }
+    else
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=false;
     }
 }
-*/
+void MainWindow::setTourelleDown(bool set)
+{
+    if(set)
+    {
+        isTourelleUp=false;isTourelleDown=true;isTourelleLeft=false;isTourelleRight=false;
+    }
+    else
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=false;
+    }
+}
+void MainWindow::setTourelleLeft(bool set)
+{
+    if(set)
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=true;isTourelleRight=false;
+    }
+    else
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=false;
+    }
+}
+void MainWindow::setTourelleRight(bool set)
+{
+    if(set)
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=true;
+    }
+    else
+    {
+        isTourelleUp=false;isTourelleDown=false;isTourelleLeft=false;isTourelleRight=false;
+    }
+}
 
-void MainWindow::robotAvancer()
+
+
+void MainWindow::sendRobotData(char caractere1, char caractere2, char caractere3)
 {
 #if USE_LINUX
-    sendData= QByteArray("A"); // Si on envoie plusieurs caracteres, il faut le changer dans le programme carte. Sinon la callback ne se declenche pas.
+    sendData= QByteArray(&caractere1); // Si on envoie plusieurs caracteres, il faut le changer dans le programme carte. Sinon la callback ne se declenche pas.
+    if(caractere2 != '\0')
+    {
+        sendData.append(&caractere2);
+    }
+    if(caractere3 != '\0')
+    {
+        sendData.append(&caractere3);
+    }
     writeData(sendData);
     //readData(); // ça renvoie bien
 #else
     qInfo()<<"Fonction avancer";
 #endif
 }
-void MainWindow::robotReculer()
+
+void MainWindow::writeData(const QByteArray &data) // Sur la serial normale
 {
 #if USE_LINUX
-    sendData= QByteArray("R");
-    writeData(sendData);
-    //readData(); // ça renvoie bien
+    serial->write(data);
+    qInfo()<<"Message ecrit:"<<data;
+
 #else
-    qInfo()<<"Fonction reculer";
-#endif
-}
-void MainWindow::robotGauche()
-{
-#if USE_LINUX
-    sendData= QByteArray("G");
-    writeData(sendData);
-    //readData(); // ça renvoie bien
-#else
-    qInfo()<<"Fonction gauche";
-#endif
-}
-void MainWindow::robotDroite()
-{
-#if USE_LINUX
-    sendData= QByteArray("D");
-    writeData(sendData);
-    //readData(); // ça renvoie bien
-#else
-    qInfo()<<"Fonction droite";
+    qInfo()<<"Fonction write data";
 #endif
 }
 
-void MainWindow::robotStop()
+void MainWindow::readData()
 {
 #if USE_LINUX
-    sendData= QByteArray("S");
-    writeData(sendData);
-    //readData(); // ça renvoie bien
+    QByteArray data = serial->readAll();
+    qInfo()<<"Data receive:"<<data;
 #else
-    qInfo()<<"Fonction stop";
+
 #endif
 }
 
-// Les fonctions pour la tourelle vont etre à faire
+
 
 void MainWindow::openSerialPort() // Il faut brancher une carte pour que cela fonctionne
 {
@@ -408,33 +467,14 @@ void MainWindow::openZigbeePort() // Il faut brancher une carte pour que cela fo
 }
 
 
-
-void MainWindow::onButSendClicked()
+void MainWindow::onSliderValueChanged(int value)
 {
-    /*
-    QString message=mes_to_send->text();
-    writeData(message.toUtf8()); // QString --> QByteArray
-    */
+    qDebug()<<"Callback Slider";
+    int32_t convertValue = (int32_t)value;
+    int8_t poidsFort = (convertValue && 0x1111111100000000)>>8;
+    int8_t poidsFaible = convertValue &&0x11111111;
+    sendRobotData(ID_CONSIGNE,poidsFort,poidsFaible); // Pas besoin de les cast en char => même taille
 }
 
 
-void MainWindow::writeData(const QByteArray &data)
-{
-#if USE_LINUX
-    serial->write(data);
-    qInfo()<<"Message ecrit:"<<data;
 
-#else
-    qInfo()<<"Fonction write data";
-#endif
-}
-
-void MainWindow::readData()
-{
-#if USE_LINUX
-    QByteArray data = serial->readAll();
-    qInfo()<<"Data receive:"<<data;
-#else
-
-#endif
-}
