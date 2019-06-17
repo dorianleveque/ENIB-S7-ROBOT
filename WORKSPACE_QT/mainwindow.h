@@ -31,6 +31,7 @@ private:
 
     // Variables clavier
     bool isUp, isDown, isLeft, isRight;
+    bool isTourelleUp, isTourelleDown, isTourelleLeft, isTourelleRight;
     // Variables robot
     float vitesseRobot;
 

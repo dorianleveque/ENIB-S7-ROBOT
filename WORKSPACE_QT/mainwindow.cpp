@@ -1,6 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//===================================================
+#define ID_PC
+#define ID_CARTE
+
+#define ID_ROUES
+#define ID_ROUES_UP
+#define ID_ROUES_DOWN
+#define ID_ROUES_LEFT
+#define ID_ROUES_RIGHT
+
+#define ID_TOURELLE
+#define ID_TOURELLE_UP
+#define ID_TOURELLE_DOWN
+#define ID_TOURELLE_LEFT
+#define ID_TOURELLE_RIGHT
+
+#define ID_CONSIGNE
+//===================================================
+
 static QString nameport = "/dev/ttyACM0";
 static QString zigbeePort = "/dev/ttyUSB0";
 
@@ -71,6 +90,36 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
             robotDroite();
             return true;
         }
+
+        else if (ke->key() == Qt::Key_Z)
+        {
+            //setTourelleUp(true);
+            update();
+            //tourelleUp();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_S)
+        {
+            //setTourelleDown(true);
+            update();
+            //tourelleDown();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_Q)
+        {
+            //setTourelleLeft(true);
+            update();
+            //tourelleGauche();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_D)
+        {
+            //setTourelleRight(true);
+            update();
+            //tourelleDroite();
+            return true;
+        }
+
         else
         {
             // Other key
@@ -113,6 +162,36 @@ bool MainWindow::event(QEvent *event) // Fonction surchargée qui va gerer les e
             robotStop();
             return true;
         }
+
+        else if (ke->key() == Qt::Key_Z)
+        {
+            //setTourelleUp(true);
+            update();
+            //tourelleStop();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_S)
+        {
+            //setTourelleDown(false);
+            update();
+            //tourelleStop();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_Q)
+        {
+            //setTourelleLeft(true);
+            update();
+            //tourelleStop();
+            return true;
+        }
+        else if (ke->key() == Qt::Key_D)
+        {
+            //setTourelleRight(true);
+            update();
+            //tourelleStop();
+            return true;
+        }
+
         else
         {
             // Other key
