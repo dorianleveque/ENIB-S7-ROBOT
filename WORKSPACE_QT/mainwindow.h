@@ -26,11 +26,15 @@ public:
 
     // FONCTIONS
 
+public slots:
+    void onSliderValueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 
     // Variables clavier
     bool isUp, isDown, isLeft, isRight;
+    bool isTourelleUp, isTourelleDown, isTourelleLeft, isTourelleRight;
     // Variables robot
     float vitesseRobot;
 
@@ -47,14 +51,13 @@ private:
     void setDown(bool set);
     void setLeft(bool set);
     void setRight(bool set);
+    void setTourelleUp(bool set);
+    void setTourelleDown(bool set);
+    void setTourelleLeft(bool set);
+    void setTourelleRight(bool set);
     void initProgram();
-    void robotAvancer();
-    void robotReculer();
-    void robotGauche();
-    void robotDroite();
-    void robotStop();
+    void sendRobotData(char caractere,char caractere2 = '\0', char caractere3 = '\0');
     void openSerialPort();
-    void onButSendClicked();
     void writeData(const QByteArray &data);
     void readData();
     void openZigbeePort();
