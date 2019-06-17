@@ -1093,3 +1093,767 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 	at java.util.Observable.notifyObservers(Observable.java:159)
 	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
 	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:32:32.489
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:33:22.131
+!MESSAGE Failed command
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:33:22.131
+!MESSAGE Error erasing flash with vFlashErase packet
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:33:50.944
+!MESSAGE Failed command
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:33:50.944
+!MESSAGE Error erasing flash with vFlashErase packet
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:34:16.014
+!MESSAGE Failed command
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:34:16.014
+!MESSAGE Error erasing flash with vFlashErase packet
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:34:29.856
+!MESSAGE Failed command
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.cdt.debug.gdbjtag.core 4 150 2019-06-17 15:34:29.856
+!MESSAGE Error erasing flash with vFlashErase packet
+!STACK 0
+org.eclipse.cdt.debug.mi.core.MIException: Error erasing flash with vFlashErase packet
+	at org.eclipse.cdt.debug.mi.core.command.Command.throwMIException(Command.java:105)
+	at org.eclipse.cdt.debug.mi.core.command.Command.getMIInfo(Command.java:79)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.executeGDBScript(GDBJtagDebugger.java:355)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.doStartSession(GDBJtagDebugger.java:262)
+	at org.eclipse.cdt.debug.mi.core.AbstractGDBCDIDebugger.createSession(AbstractGDBCDIDebugger.java:86)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagDebugger.createSession(GDBJtagDebugger.java:69)
+	at org.eclipse.cdt.debug.gdbjtag.core.GDBJtagLaunchConfigurationDelegate.launch(GDBJtagLaunchConfigurationDelegate.java:54)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:37:53.316
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:43:01.858
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:48:06.185
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:54:17.943
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:02:12.264
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:09:54.959
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:17:07.467
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:22:44.643
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:36:27.104
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:42:46.053
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 16:44:20.186
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:48:52.639
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 16:54:11.785
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:00:36.030
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:08:08.002
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:10:30.684
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:13:29.830
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:23:53.176
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:26:35.737
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:31:28.356
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:32:52.030
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: {R,T}xThread terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:33:17.237
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: {R,T}xThread terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:34:02.339
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: {R,T}xThread terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:36:48.788
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:47:32.829
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:49:02.768
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:49:20.709
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: {R,T}xThread terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:50:39.813
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:51:06.523
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 18:04:10.838
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:09:15.682
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:14:38.292
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:19:48.636
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:26:29.615
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:32:23.608
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:37:59.731
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 18:47:15.449
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Observable.java:159)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:47:21.476
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 568 2019-06-17 18:52:26.288
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKSPACE_ROBOT/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:45)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:41)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1745)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1828)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1144)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:51)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

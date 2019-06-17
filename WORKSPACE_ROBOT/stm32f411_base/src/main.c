@@ -6,7 +6,7 @@
 #define EX2 2
 #define EX3 3
 
-#define SYNCHRO_EX EX1
+#define SYNCHRO_EX EX3
 
 //#######################################################
 
@@ -24,16 +24,28 @@ struct AMessage
 	int data;
 };
 
-//========================================================
-#if SYNCHRO_EX == EX1
 
 int dist_IR[2];
 int consigne;
 int cam_status = 1; // 0: ok, 1: research, 2: error
-int cam_cmd_x = 0;
-int cam_cmd_y = 0;
+int cam_cmd_x = 70;
+int cam_cmd_y = 70;
+
+int motor_left_cmd = 0;
+int motor_right_cmd = 0;
+
+float Kp_L = 0.005;
+float Ki_L = 0.75; //0.003/(0.1*0.02) // Te/(
+
+float Kp_R = 0.005;
+float Ki_R = 0.75; //0.003/(0.1*0.02) // Te/(
+int test_cmd[1000];
+int test_index=0;
 
 int led = 0;
+
+//========================================================
+#if SYNCHRO_EX == EX1
 
 static void task_A(void *pvParameters)
 {
@@ -72,18 +84,11 @@ static void task_A(void *pvParameters)
 		servoLow_Set(commandeServo);
 
 		*/
-
-		//pixyCam_SetLED(0,255,0);
-
-		uint16_t blockPosition[2], blockSize[2];
-		pixyCam_Get(blockPosition, blockSize);
-
-		//term_printf("x: %d, y: %d, w: %d, h: %d\n", blockPosition[0], blockPosition[1], blockSize[0], blockSize[1]);
-
-		//servoLow_Set(120);
+		//asservLeftMotor(1000);
+		asservRightMotor(1000);
 		//tracking();
 		//pixyCam_Test();
-		vTaskDelay(50); // 1000 ms
+		vTaskDelay(3); // 1000 ms
 
 	}
 
@@ -274,67 +279,118 @@ extern void vApplicationTickHook(void)
 //	HAL_IncTick();
 }
 
+void asservLeftMotor(int consigne)
+{
+	int speed = quadEncoder_GetSpeedL();
+
+	static float erreur = 0;
+	static float up = 0;
+	static float ui = 0;
+
+	erreur = consigne - speed;
+	up = Kp_L * erreur;
+	ui = Ki_L * up + ui;
+	motor_left_cmd = 100 + ui + up;
+
+	if (motor_left_cmd > 200)  { motor_left_cmd = 200; }
+	if (motor_left_cmd < 0) 	{ motor_left_cmd = 0;   }
+
+
+	if( test_index < 1000)
+	{
+	test_cmd[test_index] = speed;
+	test_index++;
+	}
+
+	motorLeft_SetDuty(motor_left_cmd);
+}
+
+void asservRightMotor(int consigne)
+{
+	int speed = quadEncoder_GetSpeedR();
+
+	static float erreur = 0;
+	static float up = 0;
+	static float ui = 0;
+
+	erreur = consigne - speed;
+	up = Kp_R * erreur;
+	ui = Ki_R * up + ui;
+	motor_right_cmd = 100 + ui + up;
+
+	if (motor_right_cmd > 200)  { motor_right_cmd = 200; }
+	if (motor_right_cmd < 0) 	{ motor_right_cmd = 0;   }
+
+	if( test_index < 1000)
+	{
+	test_cmd[test_index] = speed;
+	test_index++;
+	}
+
+	motorRight_SetDuty(motor_right_cmd);
+}
+
 void tracking()
 {
-	uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
-	int XDiff, YDiff;
-	XCamWidth = 260;
-	YCamHeight = 280;
+	static int32_t nbBlock = -1;
+	nbBlock = pixyCam_GetBlocks(1);
 
-	uint16_t blockPosition[2], blockSize[2];
-	pixyCam_Get(blockPosition, blockSize);
-	uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
-	xObject = blockPosition[0];
-	yObject = blockPosition[1];
-	wObject = blockSize[0];
-	hObject = blockSize[1];
+	if (nbBlock)
+	{
 
-	// calcul center of object
-	xObjectCenter = (uint16_t) (xObject + wObject)/2;
-	yObjectCenter = (uint16_t) (yObject + hObject)/2;
+		uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
+		int XDiff, YDiff;
+		XCamWidth = 260;
+		YCamHeight = 280;
 
-	// calcul center of cam window
-	XCamCenter = (uint16_t) (XCamWidth)/2;
-	YCamCenter = (uint16_t) (YCamHeight)/2;
+		uint16_t blockPosition[2], blockSize[2];  // position x, y and width, height
+		pixyCam_Get(blockPosition, blockSize);
 
-	// calcul diff between object and cam center
-	XDiff = xObjectCenter - XCamCenter;
-	YDiff = yObject - YCamCenter;
+		uint16_t xObject, yObject, wObject, hObject;
+		xObject = blockPosition[0];  // center of object
+		yObject = blockPosition[1];
+		wObject = blockSize[0];
+		hObject = blockSize[1];
 
-	term_printf("XDiff: %d, YDiff: %d\n", XDiff, YDiff);
+		// calcul center of cam window
+		XCamCenter = (uint16_t) (XCamWidth)/2;
+		YCamCenter = (uint16_t) (YCamHeight)/2;
+
+		// calcul diff between object and cam center
+		XDiff = xObject - XCamCenter;
+		YDiff = yObject - YCamCenter;
+
+		term_printf("XDiff: %d, YDiff: %d\n", XDiff, YDiff);
 
 
-	if (XDiff>0) {
-		cam_cmd_x --;
+		if (XDiff>150 && cam_cmd_x>20) {
+			cam_cmd_x --;
+		}
+		if (XDiff<150 && cam_cmd_x<120) {
+			cam_cmd_x ++;
+		}
+
+		if (YDiff>150 && cam_cmd_y>20) {
+			cam_cmd_y ++;
+		}
+		if (YDiff<150 && cam_cmd_y<120) {
+			cam_cmd_y --;
+		}
+
+		/*if (XDiff>0 && YDiff>0) {
+			term_printf("BAS DROITE\n");
+		}
+		if (XDiff<0 && YDiff>0) {
+			term_printf("BAS GAUCHE\n");
+		}
+		if (XDiff<0 && YDiff<0) {
+			term_printf("HAUT GAUCHE\n");
+		}
+		if (XDiff>0 && YDiff<0) {
+			term_printf("HAUT DROITE\n");
+		}*/
+
+		servoLow_Set(cam_cmd_x);
+		servoHigh_Set(cam_cmd_y);
 	}
-	if (XDiff<0) {
-		cam_cmd_x ++;
-	}
-
-	if (YDiff>0) {
-		cam_cmd_y --;
-	}
-	if (YDiff<0) {
-		cam_cmd_y ++;
-	}
-
-	/*if (XDiff>0 && YDiff>0) {
-		term_printf("BAS DROITE\n");
-	}
-	if (XDiff<0 && YDiff>0) {
-		term_printf("BAS GAUCHE\n");
-	}
-	if (XDiff<0 && YDiff<0) {
-		term_printf("HAUT GAUCHE\n");
-	}
-	if (XDiff>0 && YDiff<0) {
-		term_printf("HAUT DROITE\n");
-	}*/
-
-	servoLow_Set(cam_cmd_x+70);
-	servoHigh_Set(cam_cmd_y+70);
-	// Si bloc pas detecte ou trop petit
-		// Chercher
-	// Si bloc suffisament grand, orienter les servos
-
 }
