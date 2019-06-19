@@ -1093,6 +1093,17 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 	at java.util.Observable.notifyObservers(Observable.java:159)
 	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
 	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+<<<<<<< HEAD
+!SESSION 2019-06-19 18:21:35.228 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_141
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-19 18:26:20.945
+=======
 
 !ENTRY org.eclipse.core.resources 4 568 2019-06-17 15:32:32.489
 !MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
@@ -1495,6 +1506,7 @@ java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKS
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 
 !ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-06-17 17:10:30.684
+>>>>>>> 25bcbf8978aef385723ee5b595a4a33ddd82ddc5
 !MESSAGE Internal Error
 !STACK 0
 org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
@@ -1506,6 +1518,8 @@ org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
 	at java.util.Observable.notifyObservers(Observable.java:159)
 	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
 	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+<<<<<<< HEAD
+=======
 
 !ENTRY org.eclipse.core.resources 4 568 2019-06-17 17:13:29.830
 !MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
@@ -2702,6 +2716,7 @@ java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKS
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2344)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:509)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+<<<<<<< HEAD
 !SESSION 2019-06-19 16:01:21.151 -----------------------------------------------
 eclipse.buildId=4.4.2.M20150204-1700
 java.version=1.8.0_144
@@ -3295,3 +3310,6 @@ java.io.FileNotFoundException: /home/e2015/d5levequ/Documents/S7/SEN/ROBOT/WORKS
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2344)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:509)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+=======
+>>>>>>> 25bcbf8978aef385723ee5b595a4a33ddd82ddc5
+>>>>>>> d5e7d16073a43deec42f8d5292208c03bd8cc297

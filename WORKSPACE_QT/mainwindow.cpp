@@ -373,14 +373,9 @@ void MainWindow::sendRobotData(char caractere1, char caractere2, char caractere3
 {
 #if USE_LINUX
     sendData= QByteArray(&caractere1); // Si on envoie plusieurs caracteres, il faut le changer dans le programme carte. Sinon la callback ne se declenche pas.
-    if(caractere2 != '\0')
-    {
-        sendData.append(&caractere2);
-    }
-    if(caractere3 != '\0')
-    {
-        sendData.append(&caractere3);
-    }
+    sendData.append(&caractere2);
+    sendData.append(&caractere3);
+
     writeData(sendData);
     //readData(); // ça renvoie bien
 #else
