@@ -5,13 +5,31 @@
 #define EX1 1
 #define EX2 2
 #define EX3 3
+#define US 4
 
-#define SYNCHRO_EX EX1
+#define SYNCHRO_EX US
+
+#define ID_ROUES 'R'
+#define ID_ROUES_UP 'A'
+#define ID_ROUES_DOWN 'R'
+#define ID_ROUES_LEFT 'G'
+#define ID_ROUES_RIGHT 'D'
+#define ID_ROUES_STOP 'S'
+
+#define ID_TOURELLE 'T'
+#define ID_TOURELLE_UP 'A'
+#define ID_TOURELLE_DOWN 'R'
+#define ID_TOURELLE_LEFT 'G'
+#define ID_TOURELLE_RIGHT 'D'
+#define ID_TOURELLE_STOP 'S'
+
+#define ID_CONSIGNE 'C'
 
 //#######################################################
 
 // Déclaration des objets synchronisants !! Ne pas oublier de les créer
 xSemaphoreHandle xSemaphore = NULL;
+xSemaphoreHandle semA = NULL;
 xQueueHandle qh = NULL;
 
 
@@ -24,16 +42,37 @@ struct AMessage
 	int data;
 };
 
-//========================================================
-#if SYNCHRO_EX == EX1
+struct SensorMsg
+{
+	int AV_Left;
+	int AV_Right;
+	int AR_Left;
+	int AR_Right;
+};
+
+
 
 int dist_IR[2];
 int consigne;
 int cam_status = 1; // 0: ok, 1: research, 2: error
-int cam_cmd_x = 0;
-int cam_cmd_y = 0;
+int cam_cmd_x = 70;
+int cam_cmd_y = 70;
+
+int motor_left_cmd = 0;
+int motor_right_cmd = 0;
+
+float Kp_L = 0.005;
+float Ki_L = 0.75; //0.003/(0.1*0.02) // Te/(
+
+float Kp_R = 0.005;
+float Ki_R = 0.75; //0.003/(0.1*0.02) // Te/(
+int test_cmd[1000];
+int test_index=0;
 
 int led = 0;
+
+//========================================================
+#if SYNCHRO_EX == EX1
 
 static void task_A(void *pvParameters)
 {
@@ -72,18 +111,10 @@ static void task_A(void *pvParameters)
 		servoLow_Set(commandeServo);
 
 		*/
-
-		//pixyCam_SetLED(0,255,0);
-
-		uint16_t blockPosition[2], blockSize[2];
-		pixyCam_Get(blockPosition, blockSize);
-
-		//term_printf("x: %d, y: %d, w: %d, h: %d\n", blockPosition[0], blockPosition[1], blockSize[0], blockSize[1]);
-
-		//servoLow_Set(120);
+		asservLeftMotor(100);
+		asservRightMotor(100);
 		//tracking();
-		//pixyCam_Test();
-		vTaskDelay(50); // 1000 ms
+		vTaskDelay(3); // 1000 ms
 
 	}
 
@@ -130,7 +161,7 @@ static void task_E( void *pvParameters )
 	{
 	    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 1);
 		term_printf("TASK E \n\r");
-		xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
+		//xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
 		xSemaphoreTake( xSemaphore, portMAX_DELAY );
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, 0);
 		vTaskDelay(SAMPLING_PERIOD_ms);
@@ -149,6 +180,87 @@ static void task_F(void *pvParameters)
 		xSemaphoreGive( xSemaphore );
 	}
 }
+#elif SYNCHRO_EX == US
+
+	static void task_motor( void *pvParameters )
+	{
+		for(;;)
+		{
+			term_printf("TASK MOTOR \n\r");
+		}
+	}
+
+	static void task_sensors( void *pvParameters )
+	{
+		int loop = 0; //70   -> avec vtaskdelay => 24 loop
+		struct SensorMsg pxMessage;
+		pxMessage.AV_Left=0;
+		pxMessage.AV_Right=0;
+		pxMessage.AR_Left=0;
+		pxMessage.AR_Right=0;
+		vTaskDelay(70);
+		for(;;)
+		{
+
+
+
+			//term_printf("TASK SENSORS \n\r");
+			captDistIR_Get(dist_IR);
+
+			captDistUS_Measure(0xE0);
+			if (loop > 23) {
+			uint16_t dist = captDistUS_Get(0xE0);
+			term_printf("dist: %d \n\r", dist);
+			loop = 0;
+			}
+			loop++;
+
+			pxMessage.AV_Left=(dist_IR[0] > 2000);
+			pxMessage.AV_Right=(dist_IR[1] > 2000);
+			pxMessage.AR_Left=0;
+			pxMessage.AR_Right=0;
+
+			xQueueSend( qh, ( void * ) &pxMessage,  portMAX_DELAY );
+			xSemaphoreTake( semA, portMAX_DELAY );
+
+			vTaskDelay(70);
+		}
+	}
+
+	static void task_cam( void *pvParameters )
+	{
+		for(;;)
+		{
+			term_printf("TASK CAM \n\r");
+		}
+	}
+
+	static void task_main( void *pvParameters )
+	{
+		struct AMessage pxRxedMessage;
+
+		for (;;)
+		{
+			xQueueReceive( qh,  &( pxRxedMessage ) , portMAX_DELAY );
+			asservLeftMotor(500);
+			asservRightMotor(500);
+
+			xSemaphoreGive( semA );
+		}
+
+		/*for(;;)
+		{
+			//term_printf("TASK MAIN \n\r");
+			xSemaphoreTake(semA, portMAX_DELAY);
+
+			asservLeftMotor(500);
+			asservRightMotor(500);
+			//tracking();
+			vTaskDelay(3); // 1000 ms
+
+		}*/
+	}
+
 #endif
 //=========================================================
 //	>>>>>>>>>>>>	MAIN	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -183,10 +295,18 @@ int main(void)
 #elif SYNCHRO_EX == EX3
 	xTaskCreate( task_E, ( signed portCHAR * ) "task E", 512 /* stack size */, NULL, tskIDLE_PRIORITY+2, NULL );
 	xTaskCreate( task_F, ( signed portCHAR * ) "task F", 512 /* stack size */, NULL, tskIDLE_PRIORITY+1, NULL );
+#elif SYNCHRO_EX == US
+	xTaskCreate( task_main, 	( signed portCHAR * ) "task Main"	, 512, NULL, tskIDLE_PRIORITY+4, NULL );
+	xTaskCreate( task_sensors, 	( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+3, NULL );
+	//xTaskCreate( task_motor,	( signed portCHAR * ) "task Motor"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
+	//xTaskCreate( task_cam, 		( signed portCHAR * ) "task Cam"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
+
 #endif
 
-	vSemaphoreCreateBinary(xSemaphore);
-	xSemaphoreTake( xSemaphore, portMAX_DELAY );
+	//vSemaphoreCreateBinary(xSemaphore);
+	vSemaphoreCreateBinary(semA);
+
+	xSemaphoreTake( semA, portMAX_DELAY );
 
 	qh = xQueueCreate( 1, sizeof(struct AMessage ) );
 
@@ -205,7 +325,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 	if(UartHandle -> Instance == USART2)
 	{
 
-		 HAL_UART_Receive_IT(&Uart2Handle, (uint8_t *)rec_buf2, NB_CAR_TO_RECEIVE);
+		 HAL_UART_Receive_IT(&Uart2Handle, (uint8_t *)rec_buf2, 3); // 3 est le nombre de caracteres pour déclencher l'interupt
 		 if(*rec_buf2 == 0x41) // == A
 		 {
 			 servoHigh_Set(20);
@@ -274,67 +394,119 @@ extern void vApplicationTickHook(void)
 //	HAL_IncTick();
 }
 
-void tracking(void)
+
+void asservLeftMotor(int consigne)
 {
-	uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
-	int XDiff, YDiff;
-	XCamWidth = 260;
-	YCamHeight = 280;
+	int speed = quadEncoder_GetSpeedL();
 
-	uint16_t blockPosition[2], blockSize[2];
-	pixyCam_Get(blockPosition, blockSize);
-	uint16_t xObject, yObject, wObject, hObject, xObjectCenter, yObjectCenter;
-	xObject = blockPosition[0];
-	yObject = blockPosition[1];
-	wObject = blockSize[0];
-	hObject = blockSize[1];
+	static float erreur = 0;
+	static float up = 0;
+	static float ui = 0;
 
-	// calcul center of object
-	xObjectCenter = (uint16_t) (xObject + wObject)/2;
-	yObjectCenter = (uint16_t) (yObject + hObject)/2;
+	erreur = consigne - speed;
+	up = Kp_L * erreur;
+	ui = Ki_L * up + ui;
+	motor_left_cmd = 100 + ui + up;
 
-	// calcul center of cam window
-	XCamCenter = (uint16_t) (XCamWidth)/2;
-	YCamCenter = (uint16_t) (YCamHeight)/2;
-
-	// calcul diff between object and cam center
-	XDiff = xObjectCenter - XCamCenter;
-	YDiff = yObject - YCamCenter;
-
-	term_printf("XDiff: %d, YDiff: %d\n", XDiff, YDiff);
+	if (motor_left_cmd > 200)  { motor_left_cmd = 200; }
+	if (motor_left_cmd < 0) 	{ motor_left_cmd = 0;   }
 
 
-	if (XDiff>0) {
-		cam_cmd_x --;
-	}
-	if (XDiff<0) {
-		cam_cmd_x ++;
+	if( test_index < 1000)
+	{
+	test_cmd[test_index] = speed;
+	test_index++;
 	}
 
-	if (YDiff>0) {
-		cam_cmd_y --;
-	}
-	if (YDiff<0) {
-		cam_cmd_y ++;
+	motorLeft_SetDuty(motor_left_cmd);
+}
+
+void asservRightMotor(int consigne)
+{
+	int speed = quadEncoder_GetSpeedR();
+
+	static float erreur = 0;
+	static float up = 0;
+	static float ui = 0;
+
+	erreur = consigne - speed;
+	up = Kp_R * erreur;
+	ui = Ki_R * up + ui;
+	motor_right_cmd = 100 + ui + up;
+
+	if (motor_right_cmd > 200)  { motor_right_cmd = 200; }
+	if (motor_right_cmd < 0) 	{ motor_right_cmd = 0;   }
+
+	if( test_index < 1000)
+	{
+	test_cmd[test_index] = speed;
+	test_index++;
 	}
 
-	/*if (XDiff>0 && YDiff>0) {
-		term_printf("BAS DROITE\n");
-	}
-	if (XDiff<0 && YDiff>0) {
-		term_printf("BAS GAUCHE\n");
-	}
-	if (XDiff<0 && YDiff<0) {
-		term_printf("HAUT GAUCHE\n");
-	}
-	if (XDiff>0 && YDiff<0) {
-		term_printf("HAUT DROITE\n");
-	}*/
+	motorRight_SetDuty(motor_right_cmd);
+}
 
-	servoLow_Set(cam_cmd_x+70);
-	servoHigh_Set(cam_cmd_y+70);
-	// Si bloc pas detecte ou trop petit
-		// Chercher
-	// Si bloc suffisament grand, orienter les servos
+void tracking()
+{
+	static int32_t nbBlock = -1;
+	nbBlock = pixyCam_GetBlocks(1);
 
+	if (nbBlock)
+	{
+
+		uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
+		int XDiff, YDiff;
+		XCamWidth = 260;
+		YCamHeight = 280;
+
+		uint16_t blockPosition[2], blockSize[2];  // position x, y and width, height
+		pixyCam_Get(blockPosition, blockSize);
+
+		uint16_t xObject, yObject, wObject, hObject;
+		xObject = blockPosition[0];  // center of object
+		yObject = blockPosition[1];
+		wObject = blockSize[0];
+		hObject = blockSize[1];
+
+		// calcul center of cam window
+		XCamCenter = (uint16_t) (XCamWidth)/2;
+		YCamCenter = (uint16_t) (YCamHeight)/2;
+
+		// calcul diff between object and cam center
+		XDiff = xObject - XCamCenter;
+		YDiff = yObject - YCamCenter;
+
+		term_printf("XDiff: %d, YDiff: %d\n", XDiff, YDiff);
+
+
+		if (XDiff>150 && cam_cmd_x>20) {
+			cam_cmd_x --;
+		}
+		if (XDiff<150 && cam_cmd_x<120) {
+			cam_cmd_x ++;
+		}
+
+		if (YDiff>150 && cam_cmd_y>20) {
+			cam_cmd_y ++;
+		}
+		if (YDiff<150 && cam_cmd_y<120) {
+			cam_cmd_y --;
+		}
+
+		/*if (XDiff>0 && YDiff>0) {
+			term_printf("BAS DROITE\n");
+		}
+		if (XDiff<0 && YDiff>0) {
+			term_printf("BAS GAUCHE\n");
+		}
+		if (XDiff<0 && YDiff<0) {
+			term_printf("HAUT GAUCHE\n");
+		}
+		if (XDiff>0 && YDiff<0) {
+			term_printf("HAUT DROITE\n");
+		}*/
+
+		servoLow_Set(cam_cmd_x);
+		servoHigh_Set(cam_cmd_y);
+	}
 }
