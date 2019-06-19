@@ -274,7 +274,7 @@ extern void vApplicationTickHook(void)
 //	HAL_IncTick();
 }
 
-void tracking()
+void tracking(void)
 {
 	uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
 	int XDiff, YDiff;
