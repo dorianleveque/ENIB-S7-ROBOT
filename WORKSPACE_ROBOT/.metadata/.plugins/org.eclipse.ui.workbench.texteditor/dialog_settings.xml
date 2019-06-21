@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="consigne" key="selection"/>
+		<item value="semC" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="true" key="wholeword"/>
 		<list key="findhistory">
+			<item value="semC"/>
 			<item value="consigne"/>
 			<item value="pixyCam_Get"/>
 			<item value="pixyCam_SetLED"/>
@@ -17,9 +18,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="285" key="DIALOG_WIDTH"/>
+		<item value="291" key="DIALOG_WIDTH"/>
 		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="419" key="DIALOG_HEIGHT"/>
+		<item value="422" key="DIALOG_HEIGHT"/>
 		<item value="844" key="DIALOG_X_ORIGIN"/>
 		<item value="175" key="DIALOG_Y_ORIGIN"/>
 	</section>

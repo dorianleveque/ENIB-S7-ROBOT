@@ -31,9 +31,11 @@
 xSemaphoreHandle xSemaphore = NULL;
 xSemaphoreHandle semA = NULL;
 xSemaphoreHandle semB = NULL;
-xSemaphoreHandle semC = NULL;
-xQueueHandle qh = NULL;
 
+xSemaphoreHandle mutex = NULL;
+
+xQueueHandle qh = NULL;
+xQueueHandle qh2 = NULL;
 
 extern uint8_t rec_buf2[NB_CAR_TO_RECEIVE+1];	 // defined in drv_uart.c
 extern uint8_t rec_buf6[NB_CAR_TO_RECEIVE+1];
@@ -91,7 +93,7 @@ int led = 0;
 
 static void task_A(void *pvParameters)
 {
-	int servoLowValue;
+	uint8_t buttons=0;
 
 	for (;;)
 	{
@@ -100,7 +102,7 @@ static void task_A(void *pvParameters)
 
 
 
-		tracking();
+		/*tracking();
 
 		servoLowValue = servoLow_Get();
 		if (servoLowValue < 40) // right side
@@ -119,9 +121,12 @@ static void task_A(void *pvParameters)
 		else {
 			asservLeftMotor(speed_motor_cmd);
 		}
-		//term_printf("value: %d\n\r", servoLowValue);
+		//term_printf("value: %d\n\r", servoLowValue);*/
 
-		vTaskDelay(3); // 1000 ms
+		buttons=screenLCD_ReadButtons();
+		term_printf("buttons = %d \n\r",buttons);
+
+		vTaskDelay(70); // 1000 ms
 
 	}
 
@@ -203,7 +208,8 @@ static void task_F(void *pvParameters)
 			asservLeftMotor(pxRcvMsg.motorCmd);
 			asservRightMotor(pxRcvMsg.motorCmd);
 
-			xSemaphoreTake( semB, portMAX_DELAY ); // donne la main à cam
+			//xSemaphoreTake( semC, portMAX_DELAY ); // donne la main à cam
+			//xSemaphoreGive( semC );
 			xSemaphoreGive( semA );  // redonne la main à sensor
 		}
 	}
@@ -223,13 +229,13 @@ static void task_F(void *pvParameters)
 		vTaskDelay(Te);//Te
 		for(;;)
 		{
-			term_printf("TASK SENSORS %d\n\r", dist_AR_L);
+			term_printf("TASK SENSORS %d, %d\n\r", dist_AR_L, dist_AR_R);
 
 			//recupère les distance avant
 			captDistIR_Get(dist_IR);
 
-			if (loop>8*Te) {
-
+			if (loop>8*Te) { //8
+				xSemaphoreTake( mutex, portMAX_DELAY );
 				dist_AR_R = captDistUS_Get(0xE0);
 				dist_AR_L = captDistUS_Get(0xE2);
 
@@ -240,12 +246,27 @@ static void task_F(void *pvParameters)
 				captDistUS_Measure(0xE0);
 				captDistUS_Measure(0xE2);
 
+				xSemaphoreGive( mutex );
+
 				loop = 0;
 
 			}
+			/*else if (loop==1) {
+
+				char mes1[16] = {"hello"};
+				screenLCD_Write(mes1, 26,  0, 1);
+				screenLCD_SetBacklight(200);
+				//xSemaphoreTake( semB, portMAX_DELAY );
+			}
+			else if (loop==24)
+			{
+				uint8_t buttons=0;
+				buttons=screenLCD_ReadButtons();
+				term_printf("buttons = %d \n\r",buttons);
+			}*/
 			loop++;
 
-			pxMsg.motorCmd = speed_motor_cmd;
+			pxMsg.motorCmd = 1000;//speed_motor_cmd;
 
 			//term_printf("distR: %d, distL: %d \n\r", pxMsg.AR_Right, pxMsg.AR_Left);
 
@@ -257,15 +278,37 @@ static void task_F(void *pvParameters)
 		}
 	}
 
-	static void task_cam( void *pvParameters )
+	static void task_btn( void *pvParameters )
 	{
 		for(;;)
 		{
-			//term_printf("TASK CAM \n\r");
-			tracking();
+			xSemaphoreTake( mutex, portMAX_DELAY );
+			//term_printf("TASK BTN \n\r");
+			//tracking();
 
-			//vTaskDelay(1); // donne la main à une tache libre (task lcd)
-			xSemaphoreGive( semB ); // redonne la main à motor
+			uint8_t buttons=0;
+			buttons=screenLCD_ReadButtons();
+			term_printf("buttons = %d \n\r",buttons);
+
+
+			switch(buttons){
+			case 14:
+				current_dirrection = avant;
+				break;
+			case 13:
+				current_dirrection = arriere;
+				break;
+			case 11:
+				current_dirrection = gauche;
+				break;
+			case 7:
+				current_dirrection = droite;
+				break;
+			}
+
+			//vTaskDelay(10); // donne la main à une tache libre (task lcd)
+			vTaskDelay(Te);
+			xSemaphoreGive( mutex ); // redonne la main à motor
 		}
 	}
 
@@ -275,6 +318,7 @@ static void task_F(void *pvParameters)
 		char mes2[16];
 		for(;;)
 		{
+			xSemaphoreTake( mutex, portMAX_DELAY );
 			term_printf("TASK LCD \n\r");
 			switch(current_dirrection)
 			{
@@ -296,7 +340,8 @@ static void task_F(void *pvParameters)
 			}
 			screenLCD_Write(mes1, 26,  0, 1);
 			screenLCD_SetBacklight(200);
-			xSemaphoreGive( semC );
+			vTaskDelay(8*Te);
+			xSemaphoreGive( mutex );
 		}
 	}
 
@@ -337,21 +382,22 @@ int main(void)
 	xTaskCreate( task_F, ( signed portCHAR * ) "task F", 512 /* stack size */, NULL, tskIDLE_PRIORITY+1, NULL );
 #elif SYNCHRO_EX == US
 	//xTaskCreate( task_main, 	( signed portCHAR * ) "task Main"	, 512, NULL, tskIDLE_PRIORITY+4, NULL );
-	xTaskCreate( task_sensors, 	( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+4, NULL );
+	xTaskCreate( task_sensors, 	( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+3, NULL );
+	xTaskCreate( task_motor,	( signed portCHAR * ) "task Motor"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
 	xTaskCreate( task_lcd, 		( signed portCHAR * ) "task lcd"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
-	xTaskCreate( task_motor,	( signed portCHAR * ) "task Motor"	, 512, NULL, tskIDLE_PRIORITY+3, NULL );
-	xTaskCreate( task_cam, 		( signed portCHAR * ) "task Cam"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
+	xTaskCreate( task_btn, 		( signed portCHAR * ) "task Btn"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
 
 #endif
 
 	//vSemaphoreCreateBinary(xSemaphore);
 	vSemaphoreCreateBinary(semA);
-	vSemaphoreCreateBinary(semB);
-	vSemaphoreCreateBinary(semC);
+	vSemaphoreCreateBinary(mutex);
+	//mutex = xSemaphoreCreateMutex();
 
 	xSemaphoreTake( semA, portMAX_DELAY );
 
 	qh = xQueueCreate( 1, sizeof(struct AMessage ) );
+	//qh2 = xQueueCreate( 1, sizeof(struct AMessage ) );
 
 	vTaskStartScheduler();
 
