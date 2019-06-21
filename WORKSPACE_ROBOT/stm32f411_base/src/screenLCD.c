@@ -13,6 +13,8 @@
 #define	LCD_WR		0x61
 #define	SET_BL		0x62
 
+extern xSemaphoreHandle mutex;
+
 /*************************************************************************
  *	DOCUMENTATON
  * https://www.olimex.com/Products/Duino/Shields/SHIELD-LCD16x2/open-source-hardware
@@ -77,7 +79,10 @@ void screenLCD_Write(char* string_to_write, uint8_t length,  uint8_t X, uint8_t 
     	message[0]=y;
     	message[1]=x;
     	message[2]=string_to_write[i];
+
+    	//xSemaphoreTake( mutex, portMAX_DELAY );
     	i2c1_WriteRegBuffer(SCREEN_LCD_ADDRESS, LCD_WR, (uint8_t*)message,3);
+    	//xSemaphoreGive( mutex );
     	x++;
     	if(x > 15){
     	            x = 0;
@@ -85,7 +90,7 @@ void screenLCD_Write(char* string_to_write, uint8_t length,  uint8_t X, uint8_t 
     	            if(y > 2)
     	                return;
     	        }
-    	HAL_Delay(20);
+    	HAL_Delay(20);//20
     }
 
 	screenLCD_getID();

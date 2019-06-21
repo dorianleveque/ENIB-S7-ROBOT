@@ -36,9 +36,10 @@
 
 #include "util.h"
 
-void asservLeftMotor(int consigne);
-void asservRightMotor(int consigne);
+/*void asservLeftMotor(int consigne);
+void asservRightMotor(int consigne);*/
 void tracking();
+//int sup_glissement();
 
 #endif /* __MAIN_H */
 

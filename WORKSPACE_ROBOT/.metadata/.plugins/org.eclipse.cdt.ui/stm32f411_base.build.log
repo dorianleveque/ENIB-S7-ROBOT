@@ -1,17 +1,13 @@
-11:55:12 **** Incremental Build of configuration Default for project stm32f411_base ****
+14:34:16 **** Incremental Build of configuration Default for project stm32f411_base ****
 make all 
 arm-none-eabi-gcc -IFreeRTOS/Source/include/ -IFreeRTOS/Source/portable/GCC/ARM_CM4F/ -Iinc/ -Isrc/drv/ -I_Libraries/STM32F4xx_HAL_Driver/Inc/ -I_Libraries/STM32F4xx_StdPeriph_Driver/Inc/ -I_Libraries/CMSIS/Device/ST/STM32F4xx/Include/ -I_Libraries/CMSIS/Include/ -I_Libraries/BSP/STM32F4xx-Nucleo/ -DSTM32F411xE -ggdb -O0 -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -Wl,--gc-sections  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fsingle-precision-constant -Wall -Wextra -Warray-bounds -Wno-unused-parameter -TDevice/gcc.ld -mfloat-abi=hard -lc -lgcc -lgcov -lm -Wl,-Map=template.elf.map  _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c _Libraries/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c src/main.c Device/startup_stm32f411xe.s _Libraries/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c src/stm32f4xx_hal_msp.c src/stm32f4xx_it.c src/system_stm32f4xx.c src/newlib_stubs.c src/SystemClock.c src/tickTimer.c src/captDistIR.c src/util.c src/motorCommand.c src/quadEncoder.c src/servoCommand.c src/pixyCam.c src/captDistUltrason.c src/screenLCD.c src/drv/drv_i2c.c src/drv/drv_uart.c src/drv/drv_spi.c src/drv/drv_gpio.c FreeRTOS/Source/croutine.c FreeRTOS/Source/list.c FreeRTOS/Source/queue.c FreeRTOS/Source/tasks.c FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c FreeRTOS/Source/portable/MemMang/heap_1.c -o template.elf 
-src/main.c: In function 'task_lcd':
-src/main.c:318:8: warning: unused variable 'mes2' [-Wunused-variable]
-   char mes2[16];
-        ^
 In file included from inc/main.h:33:0,
                  from src/main.c:1:
 src/main.c: In function 'main':
 FreeRTOS/Source/include/task.h:330:134: warning: pointer targets in passing argument 2 of 'xTaskGenericCreate' differ in signedness [-Wpointer-sign]
  #define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask ) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
                                                                                                                                       ^
-src/main.c:385:2: note: in expansion of macro 'xTaskCreate'
+src/main.c:459:2: note: in expansion of macro 'xTaskCreate'
   xTaskCreate( task_sensors,  ( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+3, NULL );
   ^
 FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but argument is of type 'signed char *'
@@ -20,7 +16,7 @@ FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but 
 FreeRTOS/Source/include/task.h:330:134: warning: pointer targets in passing argument 2 of 'xTaskGenericCreate' differ in signedness [-Wpointer-sign]
  #define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask ) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
                                                                                                                                       ^
-src/main.c:386:2: note: in expansion of macro 'xTaskCreate'
+src/main.c:460:2: note: in expansion of macro 'xTaskCreate'
   xTaskCreate( task_motor, ( signed portCHAR * ) "task Motor" , 512, NULL, tskIDLE_PRIORITY+2, NULL );
   ^
 FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but argument is of type 'signed char *'
@@ -29,7 +25,7 @@ FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but 
 FreeRTOS/Source/include/task.h:330:134: warning: pointer targets in passing argument 2 of 'xTaskGenericCreate' differ in signedness [-Wpointer-sign]
  #define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask ) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
                                                                                                                                       ^
-src/main.c:387:2: note: in expansion of macro 'xTaskCreate'
+src/main.c:461:2: note: in expansion of macro 'xTaskCreate'
   xTaskCreate( task_lcd,   ( signed portCHAR * ) "task lcd" , 512, NULL, tskIDLE_PRIORITY+1, NULL );
   ^
 FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but argument is of type 'signed char *'
@@ -38,21 +34,25 @@ FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but 
 FreeRTOS/Source/include/task.h:330:134: warning: pointer targets in passing argument 2 of 'xTaskGenericCreate' differ in signedness [-Wpointer-sign]
  #define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask ) xTaskGenericCreate( ( pvTaskCode ), ( pcName ), ( usStackDepth ), ( pvParameters ), ( uxPriority ), ( pxCreatedTask ), ( NULL ), ( NULL ) )
                                                                                                                                       ^
-src/main.c:388:2: note: in expansion of macro 'xTaskCreate'
+src/main.c:462:2: note: in expansion of macro 'xTaskCreate'
   xTaskCreate( task_btn,   ( signed portCHAR * ) "task Btn" , 512, NULL, tskIDLE_PRIORITY+1, NULL );
   ^
 FreeRTOS/Source/include/task.h:1516:12: note: expected 'const char * const' but argument is of type 'signed char *'
  BaseType_t xTaskGenericCreate( TaskFunction_t pxTaskCode, const char * const pcName, const uint16_t usStackDepth, void * const pvParameters, UBaseType_t uxPriority, TaskHandle_t * const pxCreatedTask, StackType_t * const puxStackBuffer, const MemoryRegion_t * const xRegions ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
             ^
+src/main.c: At top level:
+src/main.c:605:2: warning: "/*" within comment [-Wcomment]
+  /*if( test_index < 1000)
+  ^
 src/main.c: In function 'tracking':
-src/main.c:554:39: warning: variable 'hObject' set but not used [-Wunused-but-set-variable]
+src/main.c:640:39: warning: variable 'hObject' set but not used [-Wunused-but-set-variable]
    uint16_t xObject, yObject, wObject, hObject;
                                        ^
-src/main.c:554:30: warning: variable 'wObject' set but not used [-Wunused-but-set-variable]
+src/main.c:640:30: warning: variable 'wObject' set but not used [-Wunused-but-set-variable]
    uint16_t xObject, yObject, wObject, hObject;
                               ^
 arm-none-eabi-objcopy -O ihex template.elf   template.hex
 arm-none-eabi-objcopy -O binary template.elf template.bin
 
-11:55:16 Build Finished (took 3s.318ms)
+14:34:19 Build Finished (took 3s.171ms)
 
