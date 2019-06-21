@@ -48,7 +48,8 @@ struct AMessage
 
 struct MotorCmdMsg
 {
-	int motorCmd;
+	int motorCmdLeft;
+	int motorCmdRight;
 };
 
 int dist_AR_L_test = 0;
@@ -232,8 +233,8 @@ static void task_F(void *pvParameters)
 		{
 			xQueueReceive( qh,  &( pxRcvMsg ) , portMAX_DELAY );
 
-			consigneMotorLeft = pxRcvMsg.motorCmd;
-			consigneMotorRight= pxRcvMsg.motorCmd;
+			consigneMotorLeft = pxRcvMsg.motorCmdLeft;
+			consigneMotorRight= pxRcvMsg.motorCmdRight;
 
 			// acquisition des vitesses des moteurs
 			speedMotorLeft = quadEncoder_GetSpeedL();
@@ -243,7 +244,10 @@ static void task_F(void *pvParameters)
 			corr = (speedMotorLeft - speedMotorRight)*18;
 
 			// asservissement Moteur Gauche
-			erreurLeft = consigneMotorLeft - corr - speedMotorLeft;
+			if (current_dirrection == avant)
+				erreurLeft = consigneMotorLeft - corr - speedMotorLeft;
+			else
+				erreurLeft = consigneMotorLeft - speedMotorLeft;
 
 			upLeft = Kp_L * erreurLeft;
 			uiLeft = Ki_L * upLeft + uiLeft;
@@ -257,7 +261,10 @@ static void task_F(void *pvParameters)
 
 
 			// asservissement Moteur Droit
-			erreurRight = consigneMotorRight + corr - speedMotorLeft;
+			if (current_dirrection == avant)
+				erreurRight = consigneMotorRight + corr - speedMotorLeft;
+			else
+				erreurRight = consigneMotorRight - speedMotorLeft;
 
 			upRight = Kp_L * erreurRight;
 			uiRight = Ki_L * upRight + uiRight;
@@ -268,7 +275,7 @@ static void task_F(void *pvParameters)
 
 			motorRight_SetDuty(cmdMotorRight);
 
-			//term_printf("errL: %d, errR: %d, corr: %d\n\r", speedMotorLeft, speedMotorRight, corr);
+			term_printf("errL: %d, errR: %d, corr: %d\n\r", erreurLeft, erreurRight, corr);
 
 			xSemaphoreGive( semA );  // redonne la main à sensor
 		}
@@ -278,10 +285,13 @@ static void task_F(void *pvParameters)
 	{
 		int loop = 0; //70   -> avec vtaskdelay => 24 loop
 		struct MotorCmdMsg pxMsg;
-		pxMsg.motorCmd=0; //speed
+		pxMsg.motorCmdLeft=0; //speed
+		pxMsg.motorCmdRight=0; //speed
 
 		int dist_AR_R = 0;
 		int dist_AR_L = 0;
+
+		int cam_angle = 0;
 
 		// launch sensors mesure
 		captDistUS_Measure(0xE0);
@@ -290,11 +300,11 @@ static void task_F(void *pvParameters)
 		for(;;)
 		{
 			//term_printf("TASK SENSORS %d, %d\n\r", dist_AR_L, dist_AR_R);
-
+			tracking();
 			//recupère les distance avant
 			captDistIR_Get(dist_IR);
 
-			if (loop>8*Te) { //8
+			if (loop>180) { //8
 				xSemaphoreTake( mutex, portMAX_DELAY );
 				dist_AR_R = captDistUS_Get(0xE0);
 				dist_AR_L = captDistUS_Get(0xE2);
@@ -311,24 +321,26 @@ static void task_F(void *pvParameters)
 				loop = 0;
 
 			}
-			/*else if (loop==1) {
-
-				char mes1[16] = {"hello"};
-				screenLCD_Write(mes1, 26,  0, 1);
-				screenLCD_SetBacklight(200);
-				//xSemaphoreTake( semB, portMAX_DELAY );
-			}
-			else if (loop==24)
-			{
-				uint8_t buttons=0;
-				buttons=screenLCD_ReadButtons();
-				term_printf("buttons = %d \n\r",buttons);
-			}*/
 			loop++;
 
-			pxMsg.motorCmd = speed_motor_cmd;
+			cam_angle = servoLow_Get();
+			if (cam_angle < 60) {
+				current_dirrection = gauche;
+				pxMsg.motorCmdLeft = 200;
+				pxMsg.motorCmdRight = 400;
+			}
+			else if (cam_angle > 80) {
+				current_dirrection = droite;
+				pxMsg.motorCmdRight = 200;
+				pxMsg.motorCmdLeft = 400;
+			}
+			else {
+				current_dirrection = avant;
+				pxMsg.motorCmdLeft = speed_motor_cmd;
+				pxMsg.motorCmdRight = speed_motor_cmd;
+			}
 
-			//term_printf("distR: %d, distL: %d \n\r", pxMsg.AR_Right, pxMsg.AR_Left);
+			//term_printf("distR: %d, distL: %d \n\r", dist_AR_R, dist_AR_L);
 
 			xQueueSend( qh, ( void * ) &pxMsg,  portMAX_DELAY );
 			xSemaphoreTake( semA, portMAX_DELAY );
@@ -348,7 +360,7 @@ static void task_F(void *pvParameters)
 
 			uint8_t buttons=0;
 			buttons=screenLCD_ReadButtons();
-			term_printf("buttons = %d \n\r",buttons);
+			//term_printf("buttons = %d \n\r",buttons);
 
 
 			switch(buttons){
@@ -383,38 +395,39 @@ static void task_F(void *pvParameters)
 			switch(current_dirrection)
 			{
 			case stop:
-				sprintf(mes1,"ETAT    STOP    ");
+				sprintf(mes1,"DIR:STOP   ");
 				break;
 			case avant:
-				sprintf(mes1,"ETAT   MARCHE   ");
+				sprintf(mes1,"DIR:MARCHE ");
 				break;
 			case arriere:
-				sprintf(mes1,"ETAT   ARRIERE  ");
+				sprintf(mes1,"DIR:ARRIERE");
 				break;
 			case gauche:
-				sprintf(mes1,"ETAT   GAUCHE   ");
+				sprintf(mes1,"DIR:GAUCHE ");
 				break;
 			case droite:
-				sprintf(mes1,"ETAT   DROITE   ");
+				sprintf(mes1,"DIR:DROITE ");
 				break;
 			}
 
 			switch(current_mode)
 			{
 			case mode_auto:
-				sprintf(mes2,"MODE    AUTO    ");
+				sprintf(mes2,"MODE:AUTO");
 				break;
 			case mode_cmd:
-				sprintf(mes2,"MODE    CMD     ");
+				sprintf(mes2,"MODE:CMD");
 				break;
 			case mode_demo:
-				sprintf(mes2,"MODE    DEMO    ");
+				sprintf(mes2,"MODE:DEMO");
 				break;
 			}
-			screenLCD_Write(mes1, 14,  0, 1);
-			screenLCD_Write(mes2, 14,  0, 0);
 			screenLCD_SetBacklight(200);
-			//vTaskDelay(8*Te);
+			//screenLCD_Write(mes1, 12,  0, 1);
+			//screenLCD_Write(mes2, 12,  0, 0);
+
+			//vTaskDelay(3);
 			xSemaphoreGive( mutex );
 		}
 	}
