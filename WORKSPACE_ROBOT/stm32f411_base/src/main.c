@@ -236,24 +236,24 @@ static void task_F(void *pvParameters)
 			uiLeft = Ki_L * upLeft + uiLeft;
 			cmdMotorLeft = 100 + uiLeft + upLeft;
 
-			if (cmdMotorLeft > 200)  { cmdMotorLeft = 200; }
-			if (cmdMotorLeft < 0) 	{ cmdMotorLeft = 0;   }
+			if (cmdMotorLeft > 200) { cmdMotorLeft = 200; }
+			if (cmdMotorLeft < 0)   { cmdMotorLeft = 0;   }
 			motorLeft_SetDuty(cmdMotorLeft);
 
 
 
 			// right motor speed control
 			if (current_dirrection == avant)
-				errorRight = orderMotorRight + corr - speedMotorLeft;
+				errorRight = orderMotorRight + corr - speedMotorRight;
 			else
-				errorRight = orderMotorRight - speedMotorLeft;
+				errorRight = orderMotorRight - speedMotorRight;
 
-			upRight = Kp_L * errorRight;
-			uiRight = Ki_L * upRight + uiRight;
+			upRight = Kp_R * errorRight;
+			uiRight = Ki_R * upRight + uiRight;
 			cmdMotorRight = 100 + uiRight + upRight;
 
-			if (cmdMotorRight > 200)  { cmdMotorRight = 200; }
-			if (cmdMotorRight < 0) 	{ cmdMotorRight = 0;   }
+			if (cmdMotorRight > 200) { cmdMotorRight = 200; }
+			if (cmdMotorRight < 0)   { cmdMotorRight = 0;   }
 			motorRight_SetDuty(cmdMotorRight);
 
 
