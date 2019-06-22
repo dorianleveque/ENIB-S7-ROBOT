@@ -30,12 +30,9 @@
 // Déclaration des objets synchronisants !! Ne pas oublier de les créer
 xSemaphoreHandle xSemaphore = NULL;
 xSemaphoreHandle semA = NULL;
-xSemaphoreHandle semB = NULL;
-
 xSemaphoreHandle mutex = NULL;
 
 xQueueHandle qh = NULL;
-xQueueHandle qh2 = NULL;
 
 extern uint8_t rec_buf2[NB_CAR_TO_RECEIVE+1];	 // defined in drv_uart.c
 extern uint8_t rec_buf6[NB_CAR_TO_RECEIVE+1];
@@ -51,9 +48,6 @@ struct MotorCmdMsg
 	int motorCmdLeft;
 	int motorCmdRight;
 };
-
-int dist_AR_L_test = 0;
-int dist_AR_R_test = 0;
 
 enum direction_state
 {
@@ -73,21 +67,10 @@ enum mode
 };
 int current_mode = mode_auto;
 
-int speedMotorR = 0;
-int speedMotorL = 0;
-
-// test
-int erreurL=0;
-int erreurR=0;
-
 int dist_IR[2];
-int consigne;
-int cam_status = 1; // 0: ok, 1: research, 2: error
+
 int cam_cmd_x = 70;
 int cam_cmd_y = 70;
-
-int motor_left_cmd = 0;
-int motor_right_cmd = 0;
 
 int speed_motor_cmd = 400;
 
@@ -101,8 +84,6 @@ int Te = 3; //3ms
 
 int test_cmd[1000];
 int test_index=0;
-
-int led = 0;
 
 //========================================================
 #if SYNCHRO_EX == EX1
@@ -210,120 +191,130 @@ static void task_F(void *pvParameters)
 }
 #elif SYNCHRO_EX == US
 
-	static void task_motor( void *pvParameters )
+	static void task_action( void *pvParameters )
 	{
 		struct MotorCmdMsg pxRcvMsg;
 
-		int consigneMotorLeft=0;
+		int orderMotorLeft=0;
 		int speedMotorLeft = 0;
-		static float erreurLeft = 0;
+		static float errorLeft = 0;
 		static float upLeft = 0;
 		static float uiLeft = 0;
 		int cmdMotorLeft = 0;
 
-		int consigneMotorRight=0;
+		int orderMotorRight=0;
 		int speedMotorRight= 0;
-		static float erreurRight = 0;
+		static float errorRight = 0;
 		static float upRight = 0;
 		static float uiRight = 0;
 		int cmdMotorRight = 0;
 
-		int corr = 0;//(speedL - speedR);
+		int corr = 0;
 		for(;;)
 		{
 			xQueueReceive( qh,  &( pxRcvMsg ) , portMAX_DELAY );
+			orderMotorLeft = pxRcvMsg.motorCmdLeft;
+			orderMotorRight= pxRcvMsg.motorCmdRight;
 
-			consigneMotorLeft = pxRcvMsg.motorCmdLeft;
-			consigneMotorRight= pxRcvMsg.motorCmdRight;
+			// move cam to point to the correct color
+			tracking();
 
-			// acquisition des vitesses des moteurs
+			// get motors speed
 			speedMotorLeft = quadEncoder_GetSpeedL();
 			speedMotorRight= quadEncoder_GetSpeedR();
 
-			// correction glissement
+			// motors slip correction
 			corr = (speedMotorLeft - speedMotorRight)*18;
 
-			// asservissement Moteur Gauche
+			// left motor speed control
 			if (current_dirrection == avant)
-				erreurLeft = consigneMotorLeft - corr - speedMotorLeft;
+				errorLeft = orderMotorLeft - corr - speedMotorLeft;
 			else
-				erreurLeft = consigneMotorLeft - speedMotorLeft;
+				errorLeft = orderMotorLeft - speedMotorLeft;
 
-			upLeft = Kp_L * erreurLeft;
+			upLeft = Kp_L * errorLeft;
 			uiLeft = Ki_L * upLeft + uiLeft;
 			cmdMotorLeft = 100 + uiLeft + upLeft;
 
 			if (cmdMotorLeft > 200)  { cmdMotorLeft = 200; }
 			if (cmdMotorLeft < 0) 	{ cmdMotorLeft = 0;   }
-
 			motorLeft_SetDuty(cmdMotorLeft);
 
 
 
-			// asservissement Moteur Droit
+			// right motor speed control
 			if (current_dirrection == avant)
-				erreurRight = consigneMotorRight + corr - speedMotorLeft;
+				errorRight = orderMotorRight + corr - speedMotorLeft;
 			else
-				erreurRight = consigneMotorRight - speedMotorLeft;
+				errorRight = orderMotorRight - speedMotorLeft;
 
-			upRight = Kp_L * erreurRight;
+			upRight = Kp_L * errorRight;
 			uiRight = Ki_L * upRight + uiRight;
 			cmdMotorRight = 100 + uiRight + upRight;
 
 			if (cmdMotorRight > 200)  { cmdMotorRight = 200; }
 			if (cmdMotorRight < 0) 	{ cmdMotorRight = 0;   }
-
 			motorRight_SetDuty(cmdMotorRight);
 
-			term_printf("errL: %d, errR: %d, corr: %d\n\r", erreurLeft, erreurRight, corr);
 
-			xSemaphoreGive( semA );  // redonne la main à sensor
+
+			term_printf("errL: %d, errR: %d, corr: %d\n\r", errorLeft, errorRight, corr);
+			xSemaphoreGive( semA );  // give the hand to decision task
 		}
 	}
 
-	static void task_sensors( void *pvParameters )
+	static void task_decision( void *pvParameters )
 	{
 		int loop = 0; //70   -> avec vtaskdelay => 24 loop
 		struct MotorCmdMsg pxMsg;
 		pxMsg.motorCmdLeft=0; //speed
 		pxMsg.motorCmdRight=0; //speed
 
-		int dist_AR_R = 0;
-		int dist_AR_L = 0;
-
+		// sensors variables
+		int ahead_dist_left = 0;
+		int ahead_dist_right= 0;
+		int back_dist_left 	= 0;
+		int back_dist_right	= 0;
 		int cam_angle = 0;
 
-		// launch sensors mesure
+		// launch sensors measure
 		captDistUS_Measure(0xE0);
 		captDistUS_Measure(0xE2);
-		vTaskDelay(Te);//Te
+		vTaskDelay(Te);//Te, necessary for motor speed control
 		for(;;)
 		{
 			//term_printf("TASK SENSORS %d, %d\n\r", dist_AR_L, dist_AR_R);
-			tracking();
-			//recupère les distance avant
+
+			/************* UPDATE ALL SENSORS DATA **************/
+
+			// update ahead distance
 			captDistIR_Get(dist_IR);
+			ahead_dist_left = dist_IR[0];
+			ahead_dist_right= dist_IR[1];
 
-			if (loop>180) { //8
+			// update back distance
+			if (loop>Te*8) { //Te*8
 				xSemaphoreTake( mutex, portMAX_DELAY );
-				dist_AR_R = captDistUS_Get(0xE0);
-				dist_AR_L = captDistUS_Get(0xE2);
 
-				dist_AR_R_test = dist_AR_R;
-				dist_AR_L_test = dist_AR_L;
+				// get back distance
+				back_dist_right = captDistUS_Get(0xE0);
+				back_dist_left 	= captDistUS_Get(0xE2);
 
-				// launch new sensors mesure
+				// launch new sensors measure
 				captDistUS_Measure(0xE0);
 				captDistUS_Measure(0xE2);
 
 				xSemaphoreGive( mutex );
-
 				loop = 0;
-
 			}
 			loop++;
 
+			// update cam angle
 			cam_angle = servoLow_Get();
+			/************* END UPDATE ALL SENSORS DATA **************/
+
+			/************* DECISION **************/
+
 			if (cam_angle < 60) {
 				current_dirrection = gauche;
 				pxMsg.motorCmdLeft = 200;
@@ -342,11 +333,10 @@ static void task_F(void *pvParameters)
 
 			//term_printf("distR: %d, distL: %d \n\r", dist_AR_R, dist_AR_L);
 
-			xQueueSend( qh, ( void * ) &pxMsg,  portMAX_DELAY );
-			xSemaphoreTake( semA, portMAX_DELAY );
-
-
-			vTaskDelay(Te);//Te
+			xQueueSend( qh, ( void * ) &pxMsg,  portMAX_DELAY ); // give the hand to action task
+			xSemaphoreTake( semA, portMAX_DELAY );  // take the hand to action task
+			
+			vTaskDelay(Te); // Te
 		}
 	}
 
@@ -356,12 +346,10 @@ static void task_F(void *pvParameters)
 		{
 			xSemaphoreTake( mutex, portMAX_DELAY );
 			//term_printf("TASK BTN \n\r");
-			//tracking();
 
 			uint8_t buttons=0;
 			buttons=screenLCD_ReadButtons();
 			//term_printf("buttons = %d \n\r",buttons);
-
 
 			switch(buttons){
 			case 14:
@@ -374,7 +362,6 @@ static void task_F(void *pvParameters)
 				current_mode = mode_demo;
 				break;
 			/*case 7:
-				current_dirrection = droite;
 				break;*/
 			}
 
@@ -468,9 +455,8 @@ int main(void)
 	xTaskCreate( task_E, ( signed portCHAR * ) "task E", 512 /* stack size */, NULL, tskIDLE_PRIORITY+2, NULL );
 	xTaskCreate( task_F, ( signed portCHAR * ) "task F", 512 /* stack size */, NULL, tskIDLE_PRIORITY+1, NULL );
 #elif SYNCHRO_EX == US
-	//xTaskCreate( task_main, 	( signed portCHAR * ) "task Main"	, 512, NULL, tskIDLE_PRIORITY+4, NULL );
-	xTaskCreate( task_sensors, 	( signed portCHAR * ) "task Sensors", 512, NULL, tskIDLE_PRIORITY+3, NULL );
-	xTaskCreate( task_motor,	( signed portCHAR * ) "task Motor"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
+	xTaskCreate( task_decision, ( signed portCHAR * ) "task Decision", 512, NULL, tskIDLE_PRIORITY+3, NULL );
+	xTaskCreate( task_action,	( signed portCHAR * ) "task Action"	, 512, NULL, tskIDLE_PRIORITY+2, NULL );
 	xTaskCreate( task_lcd, 		( signed portCHAR * ) "task lcd"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
 	xTaskCreate( task_btn, 		( signed portCHAR * ) "task Btn"	, 512, NULL, tskIDLE_PRIORITY+1, NULL );
 
@@ -484,7 +470,6 @@ int main(void)
 	xSemaphoreTake( semA, portMAX_DELAY );
 
 	qh = xQueueCreate( 1, sizeof(struct AMessage ) );
-	//qh2 = xQueueCreate( 1, sizeof(struct AMessage ) );
 
 	vTaskStartScheduler();
 
@@ -615,7 +600,7 @@ void asservRightMotor(int consigne)
 	if (motor_right_cmd > 200)  { motor_right_cmd = 200; }
 	if (motor_right_cmd < 0) 	{ motor_right_cmd = 0;   }
 
-	/*if( test_index < 1000)
+	if( test_index < 1000)
 	{
 	test_cmd[test_index] = speed;
 	test_index++;
@@ -639,9 +624,8 @@ void tracking()
 	static int32_t nbBlock = -1;
 	nbBlock = pixyCam_GetBlocks(1);
 
-	if (nbBlock)
+	if (nbBlock) // if an object is detected
 	{
-
 		uint16_t XCamWidth, YCamHeight, XCamCenter, YCamCenter;
 		int XDiff, YDiff;
 		XCamWidth = 260;
@@ -650,11 +634,9 @@ void tracking()
 		uint16_t blockPosition[2], blockSize[2];  // position x, y and width, height
 		pixyCam_Get(blockPosition, blockSize);
 
-		uint16_t xObject, yObject, wObject, hObject;
+		uint16_t xObject, yObject;
 		xObject = blockPosition[0];  // center of object
 		yObject = blockPosition[1];
-		wObject = blockSize[0];
-		hObject = blockSize[1];
 
 		// calcul center of cam window
 		XCamCenter = (uint16_t) (XCamWidth)/2;

@@ -8,6 +8,10 @@
 *.so
 *.dll
 *.dylib
+*.bin
+*.hex
+*.elf
+*.elf.map
 
 # Qt-es
 object_script.*.Release
