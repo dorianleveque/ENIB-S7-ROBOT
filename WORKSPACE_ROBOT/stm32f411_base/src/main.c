@@ -45,8 +45,8 @@ struct AMessage
 
 struct MotorCmdMsg
 {
-	int motorCmdLeft;
-	int motorCmdRight;
+	int orderMotorLeft;
+	int orderMotorRight;
 };
 
 enum direction_state
@@ -213,8 +213,8 @@ static void task_F(void *pvParameters)
 		for(;;)
 		{
 			xQueueReceive( qh,  &( pxRcvMsg ) , portMAX_DELAY );
-			orderMotorLeft = pxRcvMsg.motorCmdLeft;
-			orderMotorRight= pxRcvMsg.motorCmdRight;
+			orderMotorLeft = pxRcvMsg.orderMotorLeft;
+			orderMotorRight= pxRcvMsg.orderMotorRight;
 
 			// move cam to point to the correct color
 			tracking();
@@ -267,8 +267,8 @@ static void task_F(void *pvParameters)
 	{
 		int loop = 0; //70   -> avec vtaskdelay => 24 loop
 		struct MotorCmdMsg pxMsg;
-		pxMsg.motorCmdLeft=0; //speed
-		pxMsg.motorCmdRight=0; //speed
+		pxMsg.orderMotorLeft=0; //speed
+		pxMsg.orderMotorRight=0; //speed
 
 		// sensors variables
 		int ahead_dist_left = 0;
@@ -276,6 +276,11 @@ static void task_F(void *pvParameters)
 		int back_dist_left 	= 0;
 		int back_dist_right	= 0;
 		int cam_angle = 0;
+
+		int coeffSpeedSensitivity = 10;
+
+		int orderMotorLeft = 0;
+		int orderMotorRight= 0;
 
 		// launch sensors measure
 		captDistUS_Measure(0xE0);
@@ -313,24 +318,66 @@ static void task_F(void *pvParameters)
 			cam_angle = servoLow_Get();
 			/************* END UPDATE ALL SENSORS DATA **************/
 
-			/************* DECISION **************/
+			/********************** *
+			 * 		DECISION		*
+			 * **********************/
+			switch (current_mode)
+			{
+			case mode_auto: /* Le Robot est autonome et suit une couleur définit par la caméra */
+				int speed_auto = 500;
+				// si on détecte un objet avec la caméra alors on avance
+				// sinon on avance pas.
 
-			if (cam_angle < 60) {
-				current_dirrection = gauche;
-				pxMsg.motorCmdLeft = 200;
-				pxMsg.motorCmdRight = 400;
-			}
-			else if (cam_angle > 80) {
-				current_dirrection = droite;
-				pxMsg.motorCmdRight = 200;
-				pxMsg.motorCmdLeft = 400;
-			}
-			else {
-				current_dirrection = avant;
-				pxMsg.motorCmdLeft = speed_motor_cmd;
-				pxMsg.motorCmdRight = speed_motor_cmd;
+				if (pixyCam_GetBlocks(1)) {
+					int diff_angle = cam_angle - 70; // >0 right side / <0 left side
+					orderMotorLeft = speed_auto - diff_angle * coeffSpeedSensitivity;
+					orderMotorRight= speed_auto + diff_angle * coeffSpeedSensitivity;
+				}
+				else {
+					current_dirrection = stop;
+				}
+
+				/*if (cam_angle < 60) {
+					current_dirrection = gauche;
+					pxMsg.orderMotorLeft = 200;
+					pxMsg.orderMotorRight = 400;
+				}
+				else if (cam_angle > 80) {
+					current_dirrection = droite;
+					pxMsg.orderMotorRight = 200;
+					pxMsg.orderMotorLeft = 400;
+				}
+				else {
+					current_dirrection = avant;
+					pxMsg.orderMotorLeft = speed_motor_cmd;
+					pxMsg.orderMotorRight = speed_motor_cmd;
+				}*/
+
+
+				break;
+			case mode_cmd: /* Le Robot est commandé à distance et suit les ordres définits */
+
+				break;
+			case mode_demo: /* Le Robot dance */
+
+				break;
 			}
 
+			/* SECURITE
+				Si le robot détecte des obstacles dans la direction voulu, 
+				interdire ses déplacements + réaction 
+			*/
+
+			if (ahead_dist_left <= 2000 && ahead_dist_left > 200){
+				orderMotorLeft = (orderMotorLeft>0) ? (int) ahead_dist_left/2000
+			}
+			
+
+
+			if (current_dirrection == stop) {
+				pxMsg.orderMotorLeft = 0;
+				pxMsg.orderMotorRight= 0;
+			}
 			//term_printf("distR: %d, distL: %d \n\r", dist_AR_R, dist_AR_L);
 
 			xQueueSend( qh, ( void * ) &pxMsg,  portMAX_DELAY ); // give the hand to action task
