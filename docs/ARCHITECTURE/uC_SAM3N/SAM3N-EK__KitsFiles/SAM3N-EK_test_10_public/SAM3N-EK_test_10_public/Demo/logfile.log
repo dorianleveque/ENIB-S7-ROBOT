@@ -1,0 +1,48 @@
+-I- Waiting ...
+-I- TCL platform : Windows NT
+-I- SAM-BA 2.10 beta on : windows
+-I- Retrieved arguments from command line :
+-I- argv 0 : COM1
+-I- argv 1 : AT91SAM3N4-EK
+-I- argv 2 : SAM3N-EK-Demo.tcl
+-I- Connection : COM1 (target(comType) = 1)
+-I- Board : at91sam3n4-ek
+-I- Traces Level : 0
+-I- target(handle) : 18042592
+Read device Chip ID at 0x400e0640 --- get 0x00000000
+Read device Chip ID at 0x400e0740 --- get 0x29540960
+-I- Found processor : at91sam3n4 (Chip ID : 0x29540960)
+-I- Loading applet isp-flash-atsam3n4.bin at address 0x20001000
+-I- Memory Size : 0x40000 bytes
+-I- Buffer address : 0x20001C2C
+-I- Buffer size: 0x4200 bytes
+-I- Applet initialization done
+-I- FLASH initialized
+-I- Command line mode : Execute script file : SAM3N-EK-Demo.tcl
+-I- === SAM3N-EK Demo Programming ===
+-I- === Init internal Flash ===
+-I- Loading applet isp-flash-atsam3n4.bin at address 0x20001000
+-I- Memory Size : 0x40000 bytes
+-I- Buffer address : 0x20001C2C
+-I- Buffer size: 0x4200 bytes
+-I- Applet initialization done
+-I- === Erase internal Flash ===
+-I- GENERIC::EraseAll
+-I- === Send executable bin into Flash ===
+-I- Send File ./SAM3N-EK-Demo.bin at address 0x400000
+ first_sector 0 last_sector 5 
+-I- 	Writing: 0x4200 bytes at 0x0 (buffer addr : 0x20001C2C)
+-I- 	0x4200 bytes written by applet
+-I- 	Writing: 0x4200 bytes at 0x4200 (buffer addr : 0x20001C2C)
+-I- 	0x4200 bytes written by applet
+-I- 	Writing: 0x4200 bytes at 0x8400 (buffer addr : 0x20001C2C)
+-I- 	0x4200 bytes written by applet
+-I- 	Writing: 0x4200 bytes at 0xC600 (buffer addr : 0x20001C2C)
+-I- 	0x4200 bytes written by applet
+-I- 	Writing: 0x4200 bytes at 0x10800 (buffer addr : 0x20001C2C)
+-I- 	0x4200 bytes written by applet
+-I- 	Writing: 0x32F8 bytes at 0x14A00 (buffer addr : 0x20001C2C)
+-I- 	0x32F8 bytes written by applet
+-I- === Chang GPNVM to Boot from Flash ===
+-I- GPNVM1 set
+-I- === End of Flash programming ===

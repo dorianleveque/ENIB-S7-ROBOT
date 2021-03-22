@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "FREERTOS_ROBOT", "FREERTOS_ROBOT\FREERTOS_ROBOT.cproj", "{43FAFC6B-3056-4A5E-B3B5-3C99BF7405CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43FAFC6B-3056-4A5E-B3B5-3C99BF7405CC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{43FAFC6B-3056-4A5E-B3B5-3C99BF7405CC}.Debug|ARM.Build.0 = Debug|ARM
+		{43FAFC6B-3056-4A5E-B3B5-3C99BF7405CC}.Release|ARM.ActiveCfg = Release|ARM
+		{43FAFC6B-3056-4A5E-B3B5-3C99BF7405CC}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
